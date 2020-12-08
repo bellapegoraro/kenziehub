@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
 import Register from "./pages/Register/index";
-import Home from './pages/home';
+import Home from './pages/HomeScreen';
 
 function App() {
   return (

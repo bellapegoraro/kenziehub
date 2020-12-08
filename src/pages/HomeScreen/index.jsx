@@ -18,7 +18,7 @@ const Home = () =>{
                 <Label>Já tenho conta</Label>
                 <Button onClick={() => history.push('/login')}>Login</Button>
                 <Label>Não tenho conta</Label>
-                <Button onClick={() => history.push('/cadastro')}>Cadastre-se</Button>
+                <Button onClick={() => history.push('/register')}>Cadastre-se</Button>
                 <Label>Entrar sem fazer login</Label>
                 <GrayButton onClick={() => history.push('/devs')}>Devs</GrayButton>
             </Content>  
