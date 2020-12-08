@@ -1,6 +1,6 @@
-import { REGISTER_USER } from "./actionsTypes";
+import { types } from "./actionsTypes";
 
 export const registerUser = (newUser) => ({
-  type: REGISTER_USER,
+  type: types.postUser,
   newUser,
 });

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { registerUserThunk } from "../../store/modules/register/thunk";
 import { useDispatch } from "react-redux";
 
-const registerForm = () => {
+const RegisterForm = () => {
   const dispatch = useDispatch();
   const schema = yup.object().shape({
     name: yup
@@ -35,11 +35,15 @@ const registerForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleForm)}>
-      <input name="name" placeholder="Nome" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.name?.message}</p>
       <input name="email" placeholder="Email" ref={register}></input>
       <p style={{ color: "red" }}>{errors.email?.message}</p>
+      <input name="password" placeholder="Senha" ref={register}></input>
+      <p style={{ color: "red" }}>{errors.password?.message}</p>
+      <input name="name" placeholder="Nome" ref={register}></input>
+      <p style={{ color: "red" }}>{errors.name?.message}</p>
+
       <input name="bio" placeholder="Bio" ref={register}></input>
+      <input name="contact" placeholder="contato" ref={register}></input>
       <input
         list="course_options"
         name="course_module"
@@ -52,11 +56,11 @@ const registerForm = () => {
         <option value="Terceiro Módulo (Backend básico)" />
         <option value="Quarto Módulo (Backend avançado)" />
       </datalist>
-      <p style={{ color: "red" }}>{errors.course_module?.message}</p>
-      <input name="password" placeholder="Senha" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.password?.message}</p>
+      <p style={{ color: "red" }}>{errors.courseModule?.message}</p>
+
+      <button type="submit">Cadastrar</button>
     </form>
   );
 };
 
-export default registerForm;
+export default RegisterForm;

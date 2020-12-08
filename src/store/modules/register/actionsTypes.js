@@ -1,1 +1,3 @@
-export const REGISTER_USER = "@add/USER";
+export const types = {
+  postUser: "@users/POST",
+};
