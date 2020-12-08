@@ -13,25 +13,29 @@ const TopBar = Styled.div `
     background-color: #3D86D9;
     color: #fff;
     font-size: 1.5rem;
+    font-weight: 900;
     height: 200px;
     border-radius: 20%;
     position: relative;
     top: -40px;
     width: 100vw;
     text-align: center;
+    line-height: 0.8;
+
 `
 const Content = Styled.div `
     display: flex;
     flex-direction: column;
-    align-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     width: 80vw;
-    text-align: left;
-    margin: 10% auto;
+    height: 45vh;
+    margin: auto;
 `
 
 const Label = Styled.label `
     color: #001F43;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 200;
     margin-bottom: 0;
 `
@@ -45,12 +49,16 @@ const Button = Styled.button `
     border-radius: 10px;
     font-size: 1.2rem;
     font-weight: 100;
+    margin-top: -10%;
+`
+const GrayButton = Styled(Button) `
+    background-color: #707070;
 `
 const Footer = Styled.footer `
     position: relative;
-    top: 34vh;
+    top: 20vh;
     text-align: center;
-
+    color: #001F43;
 `
 
 export {
@@ -60,4 +68,5 @@ export {
     Button,
     Footer,
     Content,
+    GrayButton,
 }

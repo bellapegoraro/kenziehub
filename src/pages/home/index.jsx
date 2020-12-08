@@ -5,7 +5,8 @@ import {
     Label,
     Button,
     Footer,
-    Content
+    Content,
+    GrayButton,
 } from './style';
 
 const Home = () =>{
@@ -19,9 +20,9 @@ const Home = () =>{
                 <Label>Não tenho conta</Label>
                 <Button onClick={() => history.push('/cadastro')}>Cadastre-se</Button>
                 <Label>Entrar sem fazer login</Label>
-                <Button onClick={() => history.push('/devs')}>Devs</Button>
-                <Footer>Todos os direitos reservados</Footer>
+                <GrayButton onClick={() => history.push('/devs')}>Devs</GrayButton>
             </Content>  
+            <Footer>Todos os direitos reservados</Footer>
         </Container>
     )
 }
