@@ -1,6 +1,6 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import { registerUserThunk } from "../../store/modules/register/thunk";
 import { useDispatch } from "react-redux";
 
@@ -13,13 +13,7 @@ const registerForm = () => {
       .required("Campo obrigatório"),
     email: yup.string().email("Email inválido").required("Campo obrigatório"),
     bio: yup.string(),
-    contact: yup
-      .string()
-      .url()
-      .matches(
-        /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/,
-        "Campo deve conter uma URL válida."
-      ).required,
+    contact: yup.string().required("Campo obrigatório"),
     course_module: yup.string().required("Campo obrigatório"),
     password: yup
       .string()
@@ -64,3 +58,5 @@ const registerForm = () => {
     </form>
   );
 };
+
+export default registerForm;
