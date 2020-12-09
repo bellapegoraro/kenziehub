@@ -3,6 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { registerUserThunk } from "../../store/modules/register/thunk";
 import { useDispatch } from "react-redux";
+import image from "./imagens/undraw_secure_login_pdn4.svg";
+import { Container, Image, Title, Form } from "./style";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -34,33 +36,37 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
-      <input name="email" placeholder="Email" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.email?.message}</p>
-      <input name="password" placeholder="Senha" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.password?.message}</p>
-      <input name="name" placeholder="Nome" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.name?.message}</p>
+    <Container>
+      <Image alt="register" src={image} />
+      <Title>Cadastro</Title>
+      <Form onSubmit={handleSubmit(handleForm)}>
+        <input name="email" placeholder="Email" ref={register}></input>
+        <p style={{ color: "red" }}>{errors.email?.message}</p>
+        <input name="password" placeholder="Senha" ref={register}></input>
+        <p style={{ color: "red" }}>{errors.password?.message}</p>
+        <input name="name" placeholder="Nome" ref={register}></input>
+        <p style={{ color: "red" }}>{errors.name?.message}</p>
 
-      <input name="bio" placeholder="Bio" ref={register}></input>
-      <input name="contact" placeholder="contato" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.contact?.message}</p>
-      <input
-        list="course_options"
-        name="course_module"
-        placeholder="Módulo do curso"
-        ref={register}
-      ></input>
-      <datalist id="course_options">
-        <option value="Primeiro Módulo (Frontend básico)" />
-        <option value="Segundo Módulo (Frontend avançado)" />
-        <option value="Terceiro Módulo (Backend básico)" />
-        <option value="Quarto Módulo (Backend avançado)" />
-      </datalist>
-      <p style={{ color: "red" }}>{errors.courseModule?.message}</p>
+        <input name="bio" placeholder="Bio" ref={register}></input>
+        <input name="contact" placeholder="contato" ref={register}></input>
+        <p style={{ color: "red" }}>{errors.contact?.message}</p>
+        <input
+          list="course_options"
+          name="course_module"
+          placeholder="Módulo do curso"
+          ref={register}
+        ></input>
+        <datalist id="course_options">
+          <option value="Primeiro Módulo (Frontend básico)" />
+          <option value="Segundo Módulo (Frontend avançado)" />
+          <option value="Terceiro Módulo (Backend básico)" />
+          <option value="Quarto Módulo (Backend avançado)" />
+        </datalist>
+        <p style={{ color: "red" }}>{errors.courseModule?.message}</p>
 
-      <button type="submit">Cadastrar</button>
-    </form>
+        <button type="submit">Cadastrar</button>
+      </Form>
+    </Container>
   );
 };
 
