@@ -10,8 +10,9 @@ const UserList = () => {
   }, []);
   return (
     <div>
-      {users?.map(({ name, email, techs }, index) => (
+      {users?.map(({ name, email, techs, avatar_url }, index) => (
         <div key={index}>
+          <img src={avatar_url} alt={name} />
           <p className="name">{name}</p>
           <p className="email">{email}</p>
           <div className="techs">
