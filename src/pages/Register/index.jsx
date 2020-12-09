@@ -44,6 +44,7 @@ const RegisterForm = () => {
 
       <input name="bio" placeholder="Bio" ref={register}></input>
       <input name="contact" placeholder="contato" ref={register}></input>
+      <p style={{ color: "red" }}>{errors.contact?.message}</p>
       <input
         list="course_options"
         name="course_module"
