@@ -4,7 +4,22 @@ import { useForm } from "react-hook-form";
 import { registerUserThunk } from "../../store/modules/register/thunk";
 import { useDispatch } from "react-redux";
 import image from "./imagens/undraw_secure_login_pdn4.svg";
-import { Container, Image, Title, Form } from "./style";
+import {
+  Container,
+  HeaderMobile,
+  ImageMobile,
+  HeaderDesktop,
+  ImageDesktop,
+  Main,
+  Title,
+  Bar,
+  Logo,
+  Form,
+  Input,
+  Label,
+  Button,
+  LinkStyled,
+} from "./style";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -37,35 +52,50 @@ const RegisterForm = () => {
 
   return (
     <Container>
-      <Image alt="register" src={image} />
-      <Title>Cadastro</Title>
-      <Form onSubmit={handleSubmit(handleForm)}>
-        <input name="email" placeholder="Email" ref={register}></input>
-        <p style={{ color: "red" }}>{errors.email?.message}</p>
-        <input name="password" placeholder="Senha" ref={register}></input>
-        <p style={{ color: "red" }}>{errors.password?.message}</p>
-        <input name="name" placeholder="Nome" ref={register}></input>
-        <p style={{ color: "red" }}>{errors.name?.message}</p>
+      <HeaderMobile>
+        <ImageMobile alt="register" src={image} />
+      </HeaderMobile>
+      <HeaderDesktop>
+        <Logo>KenzieHub</Logo>
+        <Bar />
+      </HeaderDesktop>
+      <ImageDesktop alt="register" src={image} />
+      <Main>
+        <Title>Cadastro</Title>
+        <Form onSubmit={handleSubmit(handleForm)}>
+          <Label for="email">Email</Label>
+          <Input name="email" placeholder="Email" ref={register}></Input>
+          <p style={{ color: "red" }}>{errors.email?.message}</p>
+          <Label for="name">Senha</Label>
+          <Input name="password" placeholder="Senha" ref={register}></Input>
+          <p style={{ color: "red" }}>{errors.password?.message}</p>
+          <Label for="nome">Nome</Label>
+          <Input name="name" placeholder="Nome" ref={register}></Input>
+          <p style={{ color: "red" }}>{errors.name?.message}</p>
+          <Label for="bio">Bio</Label>
+          <Input name="bio" placeholder="Bio" ref={register}></Input>
+          <Label for="contact">Contato</Label>
+          <Input name="contact" placeholder="Contato" ref={register}></Input>
+          <p style={{ color: "red" }}>{errors.contact?.message}</p>
+          <Label for="course_module">Módulo do curso</Label>
+          <Input
+            list="course_options"
+            name="course_module"
+            placeholder="Módulo do curso"
+            ref={register}
+          ></Input>
+          <datalist id="course_options">
+            <option value="Primeiro Módulo (Frontend básico)" />
+            <option value="Segundo Módulo (Frontend avançado)" />
+            <option value="Terceiro Módulo (Backend básico)" />
+            <option value="Quarto Módulo (Backend avançado)" />
+          </datalist>
+          <p style={{ color: "red" }}>{errors.courseModule?.message}</p>
 
-        <input name="bio" placeholder="Bio" ref={register}></input>
-        <input name="contact" placeholder="contato" ref={register}></input>
-        <p style={{ color: "red" }}>{errors.contact?.message}</p>
-        <input
-          list="course_options"
-          name="course_module"
-          placeholder="Módulo do curso"
-          ref={register}
-        ></input>
-        <datalist id="course_options">
-          <option value="Primeiro Módulo (Frontend básico)" />
-          <option value="Segundo Módulo (Frontend avançado)" />
-          <option value="Terceiro Módulo (Backend básico)" />
-          <option value="Quarto Módulo (Backend avançado)" />
-        </datalist>
-        <p style={{ color: "red" }}>{errors.courseModule?.message}</p>
-
-        <button type="submit">Cadastrar</button>
-      </Form>
+          <Button type="submit">Cadastrar</Button>
+        </Form>
+        <LinkStyled to="/login">Login</LinkStyled>
+      </Main>
     </Container>
   );
 };
