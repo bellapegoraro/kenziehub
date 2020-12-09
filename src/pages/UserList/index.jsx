@@ -8,7 +8,21 @@ const UserList = () => {
   useEffect(() => {
     dispatch(getUsersThunk());
   }, []);
-  return <div>{users.map(({ name }) => name)}</div>;
+  return (
+    <div>
+      {users?.map(({ name, email, techs }, index) => (
+        <div key={index}>
+          <p className="name">{name}</p>
+          <p className="email">{email}</p>
+          <div className="techs">
+            {techs?.map((techs, index) =>
+              index < 3 ? <p key={index}>#{techs.title}</p> : null
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default UserList;
