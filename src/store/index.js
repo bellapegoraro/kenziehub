@@ -4,7 +4,7 @@ import getUsersReducer from "./modules/users/reducer";
 import registerReducer from "./modules/register/reducer";
 
 const reducers = combineReducers({
-  user: getUsersReducer,
+  users: getUsersReducer,
   register: registerReducer,
 });
 
