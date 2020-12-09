@@ -6,10 +6,7 @@ import { useHistory } from "react-router-dom";
 
 const Login = (props) => {
   const schema = yup.object().shape({
-    user: yup
-      .string()
-      .min(3, "É necessário digitar ao menos 3 dígitos.")
-      .required("Campo obrigatório"),
+    email: yup.string().email("Email inválido").required("Campo obrigatório"),
 
     password: yup
       .string()
@@ -34,8 +31,8 @@ const Login = (props) => {
   return (
     <form onSubmit={handleSubmit(handleForm)}>
       <div>
-        <input placeholder="Usuário" name="user" ref={register}></input>
-        {errors.user?.message}
+        <input placeholder="email" name="email" ref={register}></input>
+        {errors.email?.message}
       </div>
       <p></p>
       <div>
