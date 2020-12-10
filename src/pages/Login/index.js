@@ -22,7 +22,7 @@ const Login = (props) => {
   });
 
   const handleForm = (data) => {
-    dispatch(loginThunk(data, history));
+    dispatch(loginThunk(data));
   };
 
   return (
