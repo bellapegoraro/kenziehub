@@ -3,6 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Register from "./pages/Register/index";
 import Login from "./pages/Login";
 import Home from "./pages/HomeScreen";
+import Users from "./pages/UserList";
 
 function App() {
   return (
@@ -17,8 +18,11 @@ function App() {
         <Route exact path="/login">
           <Login></Login>
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/devs">
+          <Users />
         </Route>
       </Switch>
     </>
