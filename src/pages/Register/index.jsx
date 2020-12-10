@@ -92,7 +92,6 @@ const RegisterForm = () => {
             <option value="Quarto Módulo (Backend avançado)" />
           </datalist>
           <Errors>{errors.course_module?.message}</Errors>
-
           <Button type="submit">Cadastrar</Button>
         </Form>
         <LinkStyled to="/login">Login</LinkStyled>
