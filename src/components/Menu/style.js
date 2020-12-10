@@ -8,9 +8,34 @@ export const MenuContainerOpen = styled.div`
   position: absolute;
   top: 0px;
   left: 0px;
-  border: 1px solid black;
+  background-color: #0e1f43;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding: 10px;
+`;
+
+export const LinkContainer = styled.div`
+  width: 90%;
+  height: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0px 10px;
+
+  span {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: red;
+  }
 `;
 
 export const MenuContainerClose = styled.div`
@@ -24,8 +49,4 @@ export const MenuContainerClose = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-
-  &::first-child {
-    color: white;
-  }
 `;

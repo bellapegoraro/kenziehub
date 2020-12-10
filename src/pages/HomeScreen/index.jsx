@@ -9,8 +9,6 @@ import {
   GrayButton,
 } from "./style";
 
-import Menu from "../../components/Menu";
-
 const Home = () => {
   const history = useHistory();
   return (
@@ -20,7 +18,7 @@ const Home = () => {
           Kenzie <br /> Hub
         </h1>
       </TopBar>
-      <Menu />
+
       <Content>
         <Label>Já tenho conta</Label>
         <Button onClick={() => history.push("/login")}>Login</Button>
