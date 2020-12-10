@@ -27,7 +27,6 @@ const List = () => {
             {techs?.map((techs, index) =>
               index < 3 ? <p key={index}>#{techs.title}</p> : null
             )}
-            #techs #react 3javascript
           </Techs>
         </Main>
       ))}
