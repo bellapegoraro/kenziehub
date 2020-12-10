@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const history = useHistory();
+  const token = localStorage.getItem("authToken");
 
   return (
     <>
@@ -31,16 +32,33 @@ const Menu = () => {
               size="2x"
               style={{ color: "white" }}
             />
-            <span>Devs</span>
+            <span>devs</span>
           </LinkContainer>
-          <LinkContainer onClick={() => localStorage.removeItem("authToken")}>
-            <FontAwesome
-              className="far fa-times-circle"
-              size="2x"
-              style={{ color: "white" }}
-            />
-            <span>LogOut</span>
-          </LinkContainer>
+          {token ? (
+            <>
+              <LinkContainer
+                onClick={() => localStorage.removeItem("authToken")}
+              >
+                <FontAwesome
+                  className="far fa-times-circle"
+                  size="2x"
+                  style={{ color: "white" }}
+                />
+                <span>Logout</span>
+              </LinkContainer>
+            </>
+          ) : (
+            <>
+              <LinkContainer onClick={() => history.push("/login")}>
+                <FontAwesome
+                  className="far fa-check-circle"
+                  size="2x"
+                  style={{ color: "white" }}
+                />
+                <span>Login</span>
+              </LinkContainer>
+            </>
+          )}
         </MenuContainerOpen>
       ) : (
         <MenuContainerClose onClick={() => setIsOpen(!isOpen)}>
