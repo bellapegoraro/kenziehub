@@ -2,7 +2,9 @@ import { GlobalStyle } from "./styles";
 import { Switch, Route, Link } from "react-router-dom";
 import Register from "./pages/Register/index";
 import UserProfile from "./pages/UserPage";
+import Login from "./pages/Login";
 import Home from "./pages/HomeScreen";
+import Users from "./pages/UserList";
 
 function App() {
   return (
@@ -15,8 +17,14 @@ function App() {
         <Route path="/profile/">
           <UserProfile/>
         </Route>
-        <Route path = "/">
-          <Home/>
+        <Route exact path="/login">
+          <Login></Login>
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/devs">
+          <Users />
         </Route>
       </Switch>
     </>
