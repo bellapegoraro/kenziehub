@@ -15,6 +15,11 @@ export const MenuContainerOpen = styled.div`
   flex-wrap: wrap;
   justify-content: flex-end;
   padding: 10px;
+
+  @media (min-width: 1024px) {
+    height: 100vh;
+    width: 200px;
+  }
 `;
 
 export const LinkContainer = styled.div`
@@ -49,4 +54,9 @@ export const MenuContainerClose = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+
+  @media (min-width: 1024px) {
+    border-radius: 0%;
+    height: 100vh;
+  }
 `;
