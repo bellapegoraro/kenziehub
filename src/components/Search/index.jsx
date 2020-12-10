@@ -1,11 +1,21 @@
-// import { useState } from "react";
-// import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { searchUserThunk } from "../../store/modules/search/thunk";
 
-// const Search = () => {
-//   return (
-//     <div>
-//       <input name="name" onChange={() => handleInput} />
-//       <button onClick={handleSeach}>Pesquisar</button>
-//     </div>
-//   );
-// };
+const Search = () => {
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
+
+  return (
+    <div>
+      <input name="name" value={input} onChange={() => handleInput} />
+      <button onClick={dispatch(searchUserThunk(input))}>Pesquisar</button>
+    </div>
+  );
+};
+
+export default Search;
