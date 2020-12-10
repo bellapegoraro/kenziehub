@@ -7,7 +7,7 @@ export const loginThunk = (data) => (dispach) => {
 
     .then((res) => {
       if (res.status !== "error") {
-        window.localStorage.setItem("authToken", res.data.auth_token);
+        window.localStorage.setItem("authToken", res.data.token);
         dispach(signIn(res.data));
       }
     })
