@@ -21,12 +21,13 @@ const List = () => {
           )}
           <Infos>
             <h3>{name}</h3>
-            <div>{email}</div>
+            <Email>{email}</Email>
           </Infos>
           <Techs>
             {techs?.map((techs, index) =>
               index < 3 ? <p key={index}>#{techs.title}</p> : null
             )}
+            #techs #react 3javascript
           </Techs>
         </Main>
       ))}
