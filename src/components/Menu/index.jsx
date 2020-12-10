@@ -33,7 +33,7 @@ const Menu = () => {
             />
             <span>Devs</span>
           </LinkContainer>
-          <LinkContainer onClick={() => history.push("/")}>
+          <LinkContainer onClick={() => localStorage.removeItem("authToken")}>
             <FontAwesome
               className="far fa-times-circle"
               size="2x"
