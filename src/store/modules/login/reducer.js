@@ -1,4 +1,4 @@
-import { types } from "./actionsTypes";
+import { types } from "./actionType";
 
 const signIn = (state = "", action) => {
   switch (action.type) {

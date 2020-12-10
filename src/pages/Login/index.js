@@ -1,10 +1,13 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "axios";
+import { loginThunk } from "../../store/modules/login/thunk";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const Login = (props) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório"),
 
@@ -18,14 +21,8 @@ const Login = (props) => {
     resolver: yupResolver(schema),
   });
 
-  const history = useHistory();
-
   const handleForm = (data) => {
-    axios.post(" https://kenziehub.me", { ...data }).then((res) => {
-      window.localStorage.setItem("authToken", res.data.auth_token);
-      props.setAuthentication(true);
-      history.push("/bemvindo");
-    });
+    dispatch(loginThunk(data, history));
   };
 
   return (
