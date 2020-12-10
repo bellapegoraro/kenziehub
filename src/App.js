@@ -9,8 +9,6 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Link to="/register">Cadastrar</Link>
-      <Link to="/login">Login</Link>
       <Switch>
         <Route path="/register">
           <Register></Register>
