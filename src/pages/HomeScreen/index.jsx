@@ -9,11 +9,14 @@ import {
   GrayButton,
 } from "./style";
 
+import { Menu } from "../../components/Menu";
+
 const Home = () => {
   const history = useHistory();
   return (
     <Container>
       <TopBar>
+        <Menu />
         <h1>
           Kenzie <br /> Hub
         </h1>
