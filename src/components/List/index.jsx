@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersThunk } from "../../store/modules/users/thunk";
-import DefaultImg from "./images/1600361500540.jpeg";
-import { Container } from "./style";
+import DefaultImg from "./images/footer-logo.png";
+import { Container, Image, Main, Techs, Infos, Name, Email } from "./style";
 
 const List = () => {
   const dispatch = useDispatch();
@@ -13,21 +13,22 @@ const List = () => {
   return (
     <Container>
       {users?.map(({ name, email, techs, avatar_url }, index) => (
-        <div key={index}>
+        <Main key={index}>
           {avatar_url !== null ? (
-            <img src={avatar_url} alt={name} />
+            <Image src={avatar_url} alt={name} />
           ) : (
-            <img src={DefaultImg} alt={name} />
+            <Image src={DefaultImg} alt={name} />
           )}
-
-          <p className="name">{name}</p>
-          <p className="email">{email}</p>
-          <div className="techs">
+          <Infos>
+            <h3>{name}</h3>
+            <div>{email}</div>
+          </Infos>
+          <Techs>
             {techs?.map((techs, index) =>
               index < 3 ? <p key={index}>#{techs.title}</p> : null
             )}
-          </div>
-        </div>
+          </Techs>
+        </Main>
       ))}
     </Container>
   );
