@@ -4,12 +4,21 @@ import {
     Col3,
     Container
 } from './style';
+import {Link} from 'react-router-dom';
+import Avatar from './images/user-avatar.jpg'
+import {useSelector, useDispatch} from 'react-redux';
+import userProfileThunk from '../../store/modules/userProfile/thunk';
 
 const UserProfile = () =>{
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.userProfile)
     return(
         <Container>
+            <Link onClick={() => dispatch(userProfileThunk(user))}to='/profile'>Perfil</Link>
             <Col1>
-                <h3>Ana Maria</h3>
+                <h3>{user.name}</h3>
+                <img src={Avatar} alt="user-avatar"/>
+                <Link>Edital Perfil</Link>
             </Col1>
             <Col2>
                 <h4>Trabalhos</h4>

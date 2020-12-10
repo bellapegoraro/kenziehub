@@ -1,6 +1,6 @@
 import {SET_USER} from './actionsTypes';
 
-export const setUser = (id) =>({
+export const setUser = (user) =>({
     type: SET_USER,
-    id
+    user
 })
