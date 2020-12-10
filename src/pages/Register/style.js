@@ -6,6 +6,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   @media (min-width: 1000px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -84,9 +85,14 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 68vh;
+  width: 60vw;
+  height: 80vh;
+  @media (min-width: 700px) {
+    width: 30vw;
+  }
   @media (min-width: 1000px) {
     height: 74vh;
+    width: 18vw;
   }
 `;
 
@@ -124,7 +130,7 @@ const Button = styled.button`
   border-radius: 10px;
   font-weight: 100;
   margin-left: 20%;
-  margin-top: 3%;
+  margin-top: 5%;
 `;
 
 const LinkStyled = styled(Link)`
@@ -135,6 +141,16 @@ const LinkStyled = styled(Link)`
 
   @media (min-width: 700px) {
     margin-top: 1%;
+  }
+`;
+
+const Errors = styled.div`
+  text-align: center;
+  font-size: 0.5em;
+  color: red;
+
+  @media (min-width: 1000px) {
+    font-size: 0.54em;
   }
 `;
 
@@ -153,4 +169,5 @@ export {
   Label,
   Button,
   LinkStyled,
+  Errors,
 };

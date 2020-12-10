@@ -19,6 +19,7 @@ import {
   Label,
   Button,
   LinkStyled,
+  Errors,
 } from "./style";
 
 const RegisterForm = () => {
@@ -63,21 +64,21 @@ const RegisterForm = () => {
       <Main>
         <Title>Cadastro</Title>
         <Form onSubmit={handleSubmit(handleForm)}>
-          <Label for="email">Email</Label>
+          <Label htmlFor="email">Email</Label>
           <Input name="email" placeholder="Email" ref={register}></Input>
-          <p style={{ color: "red" }}>{errors.email?.message}</p>
-          <Label for="name">Senha</Label>
+          <Errors>{errors.email?.message}</Errors>
+          <Label htmlFor="name">Senha</Label>
           <Input name="password" placeholder="Senha" ref={register}></Input>
-          <p style={{ color: "red" }}>{errors.password?.message}</p>
-          <Label for="nome">Nome</Label>
+          <Errors>{errors.password?.message}</Errors>
+          <Label htmlFor="nome">Nome</Label>
           <Input name="name" placeholder="Nome" ref={register}></Input>
-          <p style={{ color: "red" }}>{errors.name?.message}</p>
-          <Label for="bio">Bio</Label>
+          <Errors>{errors.name?.message}</Errors>
+          <Label htmlFor="bio">Bio</Label>
           <Input name="bio" placeholder="Bio" ref={register}></Input>
-          <Label for="contact">Contato</Label>
+          <Label htmlFor="contact">Contato</Label>
           <Input name="contact" placeholder="Contato" ref={register}></Input>
-          <p style={{ color: "red" }}>{errors.contact?.message}</p>
-          <Label for="course_module">Módulo do curso</Label>
+          <Errors>{errors.contact?.message}</Errors>
+          <Label htmlFor="course_module">Módulo do curso</Label>
           <Input
             list="course_options"
             name="course_module"
@@ -90,7 +91,7 @@ const RegisterForm = () => {
             <option value="Terceiro Módulo (Backend básico)" />
             <option value="Quarto Módulo (Backend avançado)" />
           </datalist>
-          <p style={{ color: "red" }}>{errors.courseModule?.message}</p>
+          <Errors>{errors.course_module?.message}</Errors>
 
           <Button type="submit">Cadastrar</Button>
         </Form>
