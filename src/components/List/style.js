@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  background-color: #eff0f3;
   width: 85vw;
   color: #001f43;
 `;
 
 const Main = styled.div`
+  margin: 5% 0;
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  background-color: #eff0f3;
 `;
 const Infos = styled.div`
   margin-left: 2%;
