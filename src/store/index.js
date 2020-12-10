@@ -6,7 +6,7 @@ import SingIn from "./modules/login/reducer";
 
 const reducers = combineReducers({
   login: SingIn,
-  user: getUsersReducer,
+  users: getUsersReducer,
   register: registerReducer,
 });
 
