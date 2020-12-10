@@ -3,6 +3,24 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { registerUserThunk } from "../../store/modules/register/thunk";
 import { useDispatch } from "react-redux";
+import image from "./imagens/undraw_secure_login_pdn4.svg";
+import {
+  Container,
+  HeaderMobile,
+  ImageMobile,
+  HeaderDesktop,
+  ImageDesktop,
+  Main,
+  Title,
+  Bar,
+  Logo,
+  Form,
+  Input,
+  Label,
+  Button,
+  LinkStyled,
+  Errors,
+} from "./style";
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -34,33 +52,51 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
-      <input name="email" placeholder="Email" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.email?.message}</p>
-      <input name="password" placeholder="Senha" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.password?.message}</p>
-      <input name="name" placeholder="Nome" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.name?.message}</p>
-
-      <input name="bio" placeholder="Bio" ref={register}></input>
-      <input name="contact" placeholder="contato" ref={register}></input>
-      <p style={{ color: "red" }}>{errors.contact?.message}</p>
-      <input
-        list="course_options"
-        name="course_module"
-        placeholder="Módulo do curso"
-        ref={register}
-      ></input>
-      <datalist id="course_options">
-        <option value="Primeiro Módulo (Frontend básico)" />
-        <option value="Segundo Módulo (Frontend avançado)" />
-        <option value="Terceiro Módulo (Backend básico)" />
-        <option value="Quarto Módulo (Backend avançado)" />
-      </datalist>
-      <p style={{ color: "red" }}>{errors.courseModule?.message}</p>
-
-      <button type="submit">Cadastrar</button>
-    </form>
+    <Container>
+      <HeaderMobile>
+        <ImageMobile alt="register" src={image} />
+      </HeaderMobile>
+      <HeaderDesktop>
+        <Logo>KenzieHub</Logo>
+        <Bar />
+      </HeaderDesktop>
+      <ImageDesktop alt="register" src={image} />
+      <Main>
+        <Title>Cadastro</Title>
+        <Form onSubmit={handleSubmit(handleForm)}>
+          <Label htmlFor="email">Email</Label>
+          <Input name="email" placeholder="Email" ref={register}></Input>
+          <Errors>{errors.email?.message}</Errors>
+          <Label htmlFor="name">Senha</Label>
+          <Input name="password" placeholder="Senha" ref={register}></Input>
+          <Errors>{errors.password?.message}</Errors>
+          <Label htmlFor="nome">Nome</Label>
+          <Input name="name" placeholder="Nome" ref={register}></Input>
+          <Errors>{errors.name?.message}</Errors>
+          <Label htmlFor="bio">Bio</Label>
+          <Input name="bio" placeholder="Bio" ref={register}></Input>
+          <Label htmlFor="contact">Contato</Label>
+          <Input name="contact" placeholder="Contato" ref={register}></Input>
+          <Errors>{errors.contact?.message}</Errors>
+          <Label htmlFor="course_module">Módulo do curso</Label>
+          <Input
+            list="course_options"
+            name="course_module"
+            placeholder="Módulo do curso"
+            ref={register}
+          ></Input>
+          <datalist id="course_options">
+            <option value="Primeiro Módulo (Frontend básico)" />
+            <option value="Segundo Módulo (Frontend avançado)" />
+            <option value="Terceiro Módulo (Backend básico)" />
+            <option value="Quarto Módulo (Backend avançado)" />
+          </datalist>
+          <Errors>{errors.course_module?.message}</Errors>
+          <Button type="submit">Cadastrar</Button>
+        </Form>
+        <LinkStyled to="/login">Login</LinkStyled>
+      </Main>
+    </Container>
   );
 };
 
