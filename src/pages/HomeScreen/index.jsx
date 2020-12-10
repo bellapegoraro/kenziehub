@@ -18,6 +18,7 @@ const Home = () => {
           Kenzie <br /> Hub
         </h1>
       </TopBar>
+
       <Content>
         <Label>Já tenho conta</Label>
         <Button onClick={() => history.push("/login")}>Login</Button>
