@@ -5,18 +5,17 @@ import {
     Container
 } from './style';
 import {Link} from 'react-router-dom';
-import Avatar from './images/user-avatar.jpg'
 import {useSelector, useDispatch} from 'react-redux';
 import userProfileThunk from '../../store/modules/userProfile/thunk';
 
 const UserProfile = () =>{
     const dispatch = useDispatch();
-    const user = useSelector(state => state.userProfile)
+    const userProfile = useSelector(state => state.userProfile)
+    console.log(userProfile)
     return(
         <Container>
-            <Link onClick={() => dispatch(userProfileThunk(user))}to='/profile'>Perfil</Link>
+            <Link onClick={() => dispatch(userProfileThunk(userProfile))}to='/profile'>Perfil</Link>
             <Col1>
-                <h3>{user.name}</h3>
                 <Link to='/profile/edit'>Editar Perfil</Link>
             </Col1>
             <Col2>

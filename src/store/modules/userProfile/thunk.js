@@ -1,13 +1,15 @@
 import axios from 'axios';
 import {setUser} from './actions';
 
-const userProfileThunk = (userProfile) => (dispatch) =>{
+
+
+const userProfileThunk = (userId) => (dispatch) =>{
     const token = window.localStorage.getItem('authToken');
-    axios.get(`https://kenziehub.me/users/1521c31e-9f2e-4598-ae82-835cd55882d3`, {
+    axios.get(`https://kenziehub.me/users/:${userId}`, {
         headers: token,
     })
     .then(res =>{
-        dispatch(setUser(res))
+        dispatch(setUser(res.data.id))
     })
     .catch(err => console.log(err))
 }

@@ -5,7 +5,7 @@ const userProfileReducer = (state={}, action) => {
             const {userProfile} = action;
             console.log(userProfile)
             return state = userProfile;
-    
+
         default:
             return state;
     }
