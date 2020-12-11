@@ -103,6 +103,7 @@ const Input = styled.input`
   width: 240px;
   font-size: 0.7em;
   outline: none;
+  border-radius: 5px;
 
   :focus {
     box-shadow: 0 0 5px rgba(0, 96, 206, 1);

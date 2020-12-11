@@ -18,7 +18,7 @@ const Menu = () => {
             style={{ color: "white" }}
             onClick={() => setIsOpen(!isOpen)}
           />
-          <LinkContainer onClick={() => history.push("/user")}>
+          <LinkContainer onClick={() => history.push("/profile")}>
             <FontAwesome
               className="fas fa-home"
               size="2x"
