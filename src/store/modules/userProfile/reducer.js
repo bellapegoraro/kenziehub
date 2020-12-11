@@ -3,6 +3,7 @@ const userProfileReducer = (state={}, action) => {
     switch (action.type) {
         case SET_USER:
             const {userProfile} = action;
+            console.log(userProfile)
             return state = userProfile;
     
         default:

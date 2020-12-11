@@ -17,8 +17,7 @@ const UserProfile = () =>{
             <Link onClick={() => dispatch(userProfileThunk(user))}to='/profile'>Perfil</Link>
             <Col1>
                 <h3>{user.name}</h3>
-                <img src={Avatar} alt="user-avatar"/>
-                <Link>Edital Perfil</Link>
+                <Link to='/profile/edit'>Editar Perfil</Link>
             </Col1>
             <Col2>
                 <h4>Trabalhos</h4>
