@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import FontAwesome from "react-fontawesome";
 
 export const MenuContainerOpen = styled.div`
   width: 70vw;
@@ -17,7 +16,7 @@ export const MenuContainerOpen = styled.div`
   padding: 10px;
 
   @media (min-width: 1024px) {
-    height: 100vh;
+    height: 100%;
     width: 200px;
   }
 `;

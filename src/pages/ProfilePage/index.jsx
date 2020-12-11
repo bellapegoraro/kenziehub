@@ -4,16 +4,22 @@ import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-
 const ProfilePage = () => {
   const history = useHistory();
   const [data, setData] = useState({});
+  const [password, setPassword] = useState(false);
   const schema = yup.object().shape({
     name: yup
       .string()
-      .matches(/^[a-zA-Z\s]+$/, "Campo deve conter apenas letras")
-      .required("Campo obrigatório"),
+      .matches(/^[a-zA-Z\s]+$/, "Campo deve conter apenas letras"),
     contact: yup.string(),
+    password: yup
+      .string()
+      .min(6, "Campo com no mínimo 6 caracteres")
+      .matches(
+        /^((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
+        "Campo deve conter pelo menos uma letra maiúscula, um caracter especial e um número."
+      ),
   });
 
   const { register, handleSubmit } = useForm({
@@ -21,6 +27,7 @@ const ProfilePage = () => {
   });
 
   const handleForm = async (data) => {
+    console.log(data);
     const response = await api.put("/profile", { ...data });
     console.log(response);
   };
@@ -50,10 +57,19 @@ const ProfilePage = () => {
       <form onSubmit={handleSubmit(handleForm)}>
         <input name="name" placeholder="Nome" ref={register} />
         <input name="contact" placeholder="Contato" ref={register} />
-        <input name="old_password" placeholder="Antiga Senha" ref={register} />
-        <input name="password" placeholder="Nova Senha" ref={register} />
+        {password ? (
+          <>
+            <input
+              name="old_password"
+              placeholder="Antiga senha"
+              ref={register}
+            />
+            <input name="password" placeholder="Nova senha" ref={register} />{" "}
+          </>
+        ) : null}
         <button>Teste</button>
       </form>
+      <p onClick={() => setPassword(!password)}>Alterar senha</p>
     </div>
   );
 };
