@@ -27,7 +27,7 @@ const List = () => {
               </Infos>
               <Techs>
                 {techs?.map((techs, index) =>
-                  index < 3 ? <p key={index}>#{techs.title}</p> : null
+                  index < 3 ? <span key={index}>#{techs.title} </span> : null
                 )}
               </Techs>
             </Main>
@@ -45,7 +45,7 @@ const List = () => {
               </Infos>
               <Techs>
                 {techs?.map((techs, index) =>
-                  index < 3 ? <p key={index}>#{techs.title}</p> : null
+                  index < 3 ? <span key={index}>#{techs.title} </span> : null
                 )}
               </Techs>
             </Main>

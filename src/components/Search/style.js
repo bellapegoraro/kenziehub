@@ -9,7 +9,7 @@ const Container = styled.div`
 const Input = styled.input`
   width: 295px;
   height: 28px;
-  margin-left: 5%;
+  margin-left: 7%;
   border-radius: 10px;
   border: 1px solid lightgray;
   margin-top: 5%;
@@ -19,21 +19,24 @@ const Input = styled.input`
   @media (min-width: 700px) {
     margin-top: 2%;
     margin-left: 0;
+    margin-right: 5%;
   }
 
   @media (min-width: 1000px) {
+    width: 330px;
     margin-top: 12%;
-    margin-left: 0;
+    margin-right: 0;
+    margin-left: 5%;
   }
 `;
 const Button = styled.button`
   width: 10px;
-  margin-top: 1%;
   background-color: white;
   border: none;
-  margin-left: 1%;
+  margin-left: 3%;
   @media (min-width: 700px) {
     margin-top: 2%;
+    margin-right: 3%;
   }
   @media (min-width: 1000px) {
     margin-top: 12%;
