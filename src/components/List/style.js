@@ -57,10 +57,6 @@ const Infos = styled.div`
   }
 `;
 
-const Name = styled.h3`
-  /* width: 40vw; */
-`;
-
 const Email = styled.div`
   margin-top: 3%;
   font-size: 0.75em;
@@ -96,4 +92,4 @@ const Image = styled.img`
   }
 `;
 
-export { Container, Image, Main, Techs, Name, Email, Infos };
+export { Container, Image, Main, Techs, Email, Infos };
