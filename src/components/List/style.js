@@ -24,6 +24,7 @@ const Main = styled.div`
   align-items: center;
   background-color: #eff0f3;
   box-shadow: 2px 2px 14px -5px rgba(0, 0, 0, 0.75);
+  overflow: auto;
 
   :hover {
     background-color: #d4d5d9;
