@@ -1,7 +1,4 @@
-import { types } from "./actionsTypes";
 import { getUsers } from "./actions";
-import axios from "axios";
-
 import api from "../../../services/api";
 
 export const getUsersThunk = () => (dispatch, getState) => {
