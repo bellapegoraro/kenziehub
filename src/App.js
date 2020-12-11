@@ -5,6 +5,7 @@ import UserProfile from "./pages/UserPage";
 import Login from "./pages/Login";
 import Home from "./pages/HomeScreen";
 import Users from "./pages/UserList";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/devs">
           <Users />
+        </Route>
+        <Route path="/profile">
+          <ProfilePage />
         </Route>
       </Switch>
     </>
