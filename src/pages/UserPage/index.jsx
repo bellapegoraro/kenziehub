@@ -23,10 +23,6 @@ const UserProfile = () =>{
     useEffect(() =>{
         api.get("/profile").then((res) => setUser(res.data))
     }, []);
-    
-
-
-    
 
     return(
         <>
@@ -37,7 +33,7 @@ const UserProfile = () =>{
                 <StyledLink to="/profile/edit">Editar Perfil</StyledLink>
                 <Bio>{user.bio}</Bio>
                 <Tecnologias>
-                    {user.techs.map((tech) =>{
+                    {user.techs && user.techs.map((tech) =>{
                         return(
                             <li>{tech.title}</li>
                         )
@@ -50,7 +46,7 @@ const UserProfile = () =>{
             <Col2>
                 <h4>Trabalhos</h4>
                 <div>
-                    {user.works.map((work) =>{
+                    {user.works && user.works.map((work) =>{
                         return(
                             <li>{work.title}</li>
                         )
