@@ -4,8 +4,11 @@ import * as yup from "yup";
 import { loginThunk } from "../../store/modules/login/thunk";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
-const Login = (props) => {
+import { useState } from "react";
+import api from "../../services/api";
+const Login = () => {
+  const [authentication, setAuthentication] = useState(false);
+  const token = localStorage.getItem("authToken");
   const history = useHistory();
   const dispatch = useDispatch();
   const schema = yup.object().shape({
@@ -13,7 +16,7 @@ const Login = (props) => {
 
     password: yup
       .string()
-      .min(4, "É necessário digitar ao menos 6 dígitos.")
+      .min(6, "É necessário digitar ao menos 6 dígitos.")
       .required("Campo obrigatório"),
   });
 
@@ -21,8 +24,15 @@ const Login = (props) => {
     resolver: yupResolver(schema),
   });
 
-  const handleForm = (data) => {
-    dispatch(loginThunk(data));
+  const handleForm = async (data) => {
+    const response = await api.post("/sessions", { ...data });
+    console.log(response);
+    if (response.status === 200) {
+      localStorage.setItem("authToken", response.data.token);
+      history.push("/devs");
+      return;
+    }
+    console.log(response.status);
   };
 
   return (
