@@ -1,6 +1,6 @@
 import { types } from "./actionsTypes";
 
-export const searchUsers = (user) => ({
+export const searchUser = (user) => ({
   type: types.searchUser,
   user,
 });
