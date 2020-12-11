@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersThunk } from "../../store/modules/users/thunk";
 import DefaultImg from "./images/footer-logo.png";
-import { Container, Image, Main, Techs, Infos, Name, Email } from "./style";
+import { Container, Image, Main, Techs, Infos, Email } from "./style";
 
 const List = () => {
   const dispatch = useDispatch();

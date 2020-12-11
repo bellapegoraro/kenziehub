@@ -9,6 +9,8 @@ import {
   GrayButton,
 } from "./style";
 
+import { Menu } from "../../components/Menu";
+
 const Home = () => {
   const history = useHistory();
   return (
