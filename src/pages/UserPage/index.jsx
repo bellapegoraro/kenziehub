@@ -12,7 +12,14 @@ import {
     Titles,
     Bar,
     Tecnologia,
+    Label,
+    Works,
+    Header,
+    HeaderTitle,
+    HeaderBar,
+    WorkTitle
 } from './style';
+import {Main} from '../../components/List/style';
 import userAvatar from './images/user-avatar.png'
 import {Link} from 'react-router-dom';
 import api from "../../services/api";
@@ -29,7 +36,12 @@ const UserProfile = () =>{
 
     return(
         <>
+        <Header>
+            <HeaderTitle>KenzieHub</HeaderTitle>
+            <HeaderBar/>
+        </Header>
         <Container>
+            
             <Col1>
                 <Name>{user.name}</Name>
                 {user.avatar_url ? <Avatar src={user.avatar_url} alt={user.name}/>:<Avatar src={userAvatar} alt={user.name}/>}
@@ -56,25 +68,29 @@ const UserProfile = () =>{
             </Col1>
             <Col2>
                 <Titles>Trabalhos</Titles>
-                <div>
+                <Button>Adicionar Trabalho</Button>
+                <Works>
                     {user.works && user.works.map((work, index) =>{
                         return(
-                            <div key={index}>
-                                <h5>{work.title}</h5>
+                            <Main style={{width: "500px"}} key={index}>
+                                <WorkTitle>{work.title}</WorkTitle>
                                 <p>{work.description}</p>
                                 <a target="blank" href={work.deploy_url}>{work.deploy_url}</a>
-                            </div>
+                            </Main>
                             
                         )
                     })}
-
-                </div>
-                <Button>Adicionar Trabalho</Button>
+                    
+                </Works>
+                
             </Col2>
             <Col3>
                 <Titles>Dados pessoais</Titles>
+                <Label>Contato</Label>
                 <p>{user.contact}</p>
+                <Label>E-mail</Label>
                 <p>{user.email}</p>
+                <Label>Módulo</Label>
                 <p>{user.course_module}</p>
             </Col3>
         </Container>
