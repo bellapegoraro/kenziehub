@@ -7,29 +7,49 @@ import { Container, Image, Main, Techs, Infos, Email } from "./style";
 const List = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
+  const filtered = useSelector((state) => state.search);
   useEffect(() => {
     dispatch(getUsersThunk());
   }, []);
   return (
     <Container>
-      {users?.map(({ name, email, techs, avatar_url }, index) => (
-        <Main key={index}>
-          {avatar_url !== null ? (
-            <Image src={avatar_url} alt={name} />
-          ) : (
-            <Image src={DefaultImg} alt={name} />
-          )}
-          <Infos>
-            <h3>{name}</h3>
-            <Email>{email}</Email>
-          </Infos>
-          <Techs>
-            {techs?.map((techs, index) =>
-              index < 3 ? <p key={index}>#{techs.title}</p> : null
-            )}
-          </Techs>
-        </Main>
-      ))}
+      {filtered.length !== 0
+        ? filtered.map(({ name, email, techs, avatar_url }, index) => (
+            <Main key={index}>
+              {avatar_url !== null ? (
+                <Image src={avatar_url} alt={name} />
+              ) : (
+                <Image src={DefaultImg} alt={name} />
+              )}
+              <Infos>
+                <h3>{name}</h3>
+                <Email>{email}</Email>
+              </Infos>
+              <Techs>
+                {techs?.map((techs, index) =>
+                  index < 3 ? <span key={index}>#{techs.title} </span> : null
+                )}
+              </Techs>
+            </Main>
+          ))
+        : users?.map(({ name, email, techs, avatar_url }, index) => (
+            <Main key={index}>
+              {avatar_url !== null ? (
+                <Image src={avatar_url} alt={name} />
+              ) : (
+                <Image src={DefaultImg} alt={name} />
+              )}
+              <Infos>
+                <h3>{name}</h3>
+                <Email>{email}</Email>
+              </Infos>
+              <Techs>
+                {techs?.map((techs, index) =>
+                  index < 3 ? <span key={index}>#{techs.title} </span> : null
+                )}
+              </Techs>
+            </Main>
+          ))}
     </Container>
   );
 };
