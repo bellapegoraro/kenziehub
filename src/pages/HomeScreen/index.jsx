@@ -16,7 +16,6 @@ const Home = () => {
   return (
     <Container>
       <TopBar>
-        <Menu />
         <h1>
           Kenzie <br /> Hub
         </h1>
