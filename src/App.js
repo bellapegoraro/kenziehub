@@ -27,7 +27,7 @@ function App() {
         <Route path="/devs">
           <Users />
         </Route>
-        <Route path="/profile">
+        <Route exact path="/profile/edit">
           <ProfilePage />
         </Route>
       </Switch>

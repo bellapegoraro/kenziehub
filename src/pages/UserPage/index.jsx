@@ -17,9 +17,11 @@ import {
     Header,
     HeaderTitle,
     HeaderBar,
-    WorkTitle
+    WorkTitle,
 } from './style';
 import {Main} from '../../components/List/style';
+import AddWork from '../../components/addWork';
+import AddTech from '../../components/addTech';
 import userAvatar from './images/user-avatar.png'
 import {Link} from 'react-router-dom';
 import api from "../../services/api";
@@ -28,6 +30,8 @@ import {useState, useEffect} from 'react';
 const UserProfile = () =>{
     
     const [user, setUser] = useState({})
+    const [visibleWork, setVisibleWork] = useState(false)
+    const [visibleTech, setVisibleTech] = useState(false)
     console.log(user)
 
     useEffect(() =>{
@@ -49,6 +53,7 @@ const UserProfile = () =>{
                 <Bio>{user.bio}</Bio>
                 <Tecnologias>
                     <Titles>Tecnologias</Titles>
+                    { visibleTech && <AddTech setVisibleTech={setVisibleTech}/>}
                     {user.techs && user.techs.map((tech) =>{
                         return(
                             <Tecnologia>
@@ -63,12 +68,14 @@ const UserProfile = () =>{
 
                         )
                     })}
+                    <Button onClick={() => setVisibleTech(true)}>Adicionar Tecnologia</Button>
                 </Tecnologias>
-                <Button>Adicionar Tecnologia</Button>
+                
             </Col1>
             <Col2>
                 <Titles>Trabalhos</Titles>
-                <Button>Adicionar Trabalho</Button>
+               { visibleWork && <AddWork setVisibleWork={setVisibleWork}/>}
+                <Button onClick={() => setVisibleWork(true)}>Adicionar Trabalho</Button>
                 <Works>
                     {user.works && user.works.map((work, index) =>{
                         return(

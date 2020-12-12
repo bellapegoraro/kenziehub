@@ -7,6 +7,7 @@ const Container = Styled.div `
     width: 90vw;
     margin: 0 auto;
     color: #001F43;
+    z-index: -1;
 `
 const Col1 = Styled.div `
     display: flex;
