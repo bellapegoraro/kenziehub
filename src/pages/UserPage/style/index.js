@@ -19,7 +19,7 @@ const Col1 = Styled.div `
 const Col2 = Styled.div `
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 45%;
 `
 const Col3 = Styled.div `
     display: flex;
@@ -53,6 +53,7 @@ const Titles = Styled.h4 `
     margin-top: 5%;
     margin-bottom: 5%;
     color: #001F43;
+    font-size: 1.3rem;
 `
 const Tecnologias = Styled.div `
 `
@@ -96,7 +97,7 @@ const WorkTitle = Styled.h5 `
 
 const Header = Styled.div `
     display: flex;
-    margin-top: 2%;
+    margin-bottom: 2%;
 `
 const HeaderTitle = Styled.h1 `
     color: #3D86D9;
@@ -108,6 +109,10 @@ const HeaderBar = Styled.div `
     height: 15px;
     margin-left: 2%;
     margin-top: 1%;
+`
+const WorkHeader = Styled.div `
+    display: flex;
+    justify-content: space-between;
 `
 export {
     Col1,
@@ -129,4 +134,5 @@ export {
     HeaderTitle,
     HeaderBar,
     WorkTitle,
+    WorkHeader
 }

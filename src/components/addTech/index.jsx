@@ -3,9 +3,9 @@ import {
     Form,
     Button,
     Input,
-    TextArea,
     Label,
     Error,
+    Close,
 } from '../addWork/style';
 import {MdClose} from 'react-icons/md'
 import {useForm} from 'react-hook-form';
@@ -31,7 +31,7 @@ const AddTech = ({ setVisibleTech}) =>{
     return(
         <Draggable>
         <Container>
-            <MdClose onClick={() => setVisibleTech(false)}/>
+            <Close><MdClose onClick={() => setVisibleTech(false)}/></Close>
             <Form onSubmit={handleSubmit(handleTech)}>
                 <Label>Tecnologia</Label>
                 <Input name="title" ref={register}/>

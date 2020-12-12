@@ -43,3 +43,7 @@ export const Error = Styled.span `
     color: red;
     font-size: 0.8rem;
 `
+export const Close = Styled.div `
+    display: flex;
+    justify-content: flex-end;
+`

@@ -18,16 +18,18 @@ import {
     HeaderTitle,
     HeaderBar,
     WorkTitle,
+    WorkHeader,
 } from './style';
 import {Main} from '../../components/List/style';
 import AddWork from '../../components/addWork';
 import AddTech from '../../components/addTech';
 import userAvatar from './images/user-avatar.png'
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import api from "../../services/api";
 import {useState, useEffect} from 'react';
 
 const UserProfile = () =>{
+    const history = useHistory();
     
     const [user, setUser] = useState({})
     const [visibleWork, setVisibleWork] = useState(false)
@@ -49,7 +51,7 @@ const UserProfile = () =>{
             <Col1>
                 <Name>{user.name}</Name>
                 {user.avatar_url ? <Avatar src={user.avatar_url} alt={user.name}/>:<Avatar src={userAvatar} alt={user.name}/>}
-                <StyledLink to="/profile/edit">Editar Perfil</StyledLink>
+                <StyledLink onClick={() => history.push('/edit')}>Editar Perfil</StyledLink>
                 <Bio>{user.bio}</Bio>
                 <Tecnologias>
                     <Titles>Tecnologias</Titles>
@@ -73,9 +75,12 @@ const UserProfile = () =>{
                 
             </Col1>
             <Col2>
-                <Titles>Trabalhos</Titles>
+                <WorkHeader>
+                    <Titles>Trabalhos</Titles>
+                    <Button onClick={() => setVisibleWork(true)}>Adicionar Trabalho</Button>
+                </WorkHeader>
                { visibleWork && <AddWork setVisibleWork={setVisibleWork}/>}
-                <Button onClick={() => setVisibleWork(true)}>Adicionar Trabalho</Button>
+                
                 <Works>
                     {user.works && user.works.map((work, index) =>{
                         return(

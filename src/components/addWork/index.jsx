@@ -6,6 +6,7 @@ import {
     TextArea,
     Label,
     Error,
+    Close,
 } from './style';
 import {MdClose} from 'react-icons/md'
 import {useForm} from 'react-hook-form';
@@ -14,7 +15,7 @@ import * as yup from "yup";
 import api from '../../services/api';
 import Draggable from 'react-draggable'
 
-const AddWork = ({ setVisible}) =>{
+const AddWork = ({ setVisibleWork}) =>{
     const schema = yup.object().shape({
         title: yup.string().required('Campo Obrigatório'),
         description: yup.string().required('Campo Obrigatório'),
@@ -26,13 +27,13 @@ const AddWork = ({ setVisible}) =>{
 
     const handleWork = (data) =>{
         api.post('/users/works', {...data}).then(res => console.log(res))
-        setVisible(false)
+        setVisibleWork(false)
     }
 
     return(
         <Draggable>
         <Container>
-            <MdClose onClick={() => setVisible(false)}/>
+            <Close><MdClose onClick={() => setVisibleWork(false)}/></Close>
             <Form onSubmit={handleSubmit(handleWork)}>
                 <Label>Título</Label>
                 <Input name="title" ref={register}/>
