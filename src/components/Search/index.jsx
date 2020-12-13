@@ -14,7 +14,7 @@ const Search = () => {
 
   return (
     <Container>
-      <Button onClick={dispatch(searchUserThunk(input))}>
+      <Button onClick={() => dispatch(searchUserThunk(input))}>
         <FontAwesome
           className="fas fa-search"
           size="2x"
