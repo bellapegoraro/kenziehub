@@ -8,6 +8,10 @@ const Container = Styled.div `
     margin: 0 auto;
     color: #001F43;
     z-index: -1;
+    @media(max-width: 800px){
+        flex-direction: column;
+      }
+    
 `
 const Col1 = Styled.div `
     display: flex;
@@ -15,15 +19,31 @@ const Col1 = Styled.div `
     align-items: center;
     box-shadow: 3px 3px 5px #00000029;
     padding: 2%;
+    @media(max-width: 800px){
+        box-shadow: none;
+      }
 `
 const Col2 = Styled.div `
     display: flex;
     flex-direction: column;
     width: 45%;
+    @media(max-width: 1000px){
+        width: 90vw;
+      }
 `
 const Col3 = Styled.div `
     display: flex;
     flex-direction: column;
+    @media(max-width: 1000px){
+        display: none;
+      }
+`
+const Col4 = Styled.div `
+    display: none;
+    @media(max-width: 1000px){
+        display: flex;
+        flex-direction: column;
+      }
 `
 
 const Name = Styled.h3 `
@@ -98,6 +118,9 @@ const WorkTitle = Styled.h5 `
 const Header = Styled.div `
     display: flex;
     margin-bottom: 2%;
+    @media(max-width: 800px){
+        display: none;
+      }
 `
 const HeaderTitle = Styled.h1 `
     color: #3D86D9;
@@ -109,6 +132,9 @@ const HeaderBar = Styled.div `
     height: 15px;
     margin-left: 2%;
     margin-top: 1%;
+    @media(max-width: 800px){
+        margin-top: 5%;
+      }
 `
 const WorkHeader = Styled.div `
     display: flex;
@@ -118,6 +144,7 @@ export {
     Col1,
     Col2,
     Col3,
+    Col4,
     Container,
     Name,
     Avatar,
