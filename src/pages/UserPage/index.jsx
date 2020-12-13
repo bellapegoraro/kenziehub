@@ -9,15 +9,31 @@ import {
     StyledLink,
     Button,
     Tecnologias,
+    Titles,
+    Bar,
+    Tecnologia,
+    Label,
+    Works,
+    Header,
+    HeaderTitle,
+    HeaderBar,
+    WorkTitle,
+    WorkHeader,
 } from './style';
+import {Main} from '../../components/List/style';
+import AddWork from '../../components/addWork';
+import AddTech from '../../components/addTech';
 import userAvatar from './images/user-avatar.png'
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import api from "../../services/api";
 import {useState, useEffect} from 'react';
 
 const UserProfile = () =>{
+    const history = useHistory();
     
     const [user, setUser] = useState({})
+    const [visibleWork, setVisibleWork] = useState(false)
+    const [visibleTech, setVisibleTech] = useState(false)
     console.log(user)
 
     useEffect(() =>{
@@ -26,39 +42,67 @@ const UserProfile = () =>{
 
     return(
         <>
+        <Header>
+            <HeaderTitle>KenzieHub</HeaderTitle>
+            <HeaderBar/>
+        </Header>
         <Container>
+            
             <Col1>
                 <Name>{user.name}</Name>
                 {user.avatar_url ? <Avatar src={user.avatar_url} alt={user.name}/>:<Avatar src={userAvatar} alt={user.name}/>}
-                <StyledLink to="/profile/edit">Editar Perfil</StyledLink>
+                <StyledLink onClick={() => history.push('/edit')}>Editar Perfil</StyledLink>
                 <Bio>{user.bio}</Bio>
                 <Tecnologias>
+                    <Titles>Tecnologias</Titles>
+                    { visibleTech && <AddTech setVisibleTech={setVisibleTech}/>}
                     {user.techs && user.techs.map((tech) =>{
                         return(
-                            <li>{tech.title}</li>
+                            <Tecnologia>
+                                 <h5>{tech.title}</h5>
+                                 {tech.status === 'Avançado' ? 
+                                 <Bar style={{width:"240px"}}></Bar> : 
+                                 tech.status === 'Intermediário' ? 
+                                 <Bar style={{width:"180px"}}></Bar> : 
+                                 <Bar style={{width:"100px"}}></Bar>}
+                            </Tecnologia>
+                           
+
                         )
                     })}
-
+                    <Button onClick={() => setVisibleTech(true)}>Adicionar Tecnologia</Button>
                 </Tecnologias>
-                <Button>Adicionar Tecnologia</Button>
-                <Link to='/profile/edit'>Editar Perfil</Link>
+                
             </Col1>
             <Col2>
-                <h4>Trabalhos</h4>
-                <div>
-                    {user.works && user.works.map((work) =>{
+                <WorkHeader>
+                    <Titles>Trabalhos</Titles>
+                    <Button onClick={() => setVisibleWork(true)}>Adicionar Trabalho</Button>
+                </WorkHeader>
+               { visibleWork && <AddWork setVisibleWork={setVisibleWork}/>}
+                
+                <Works>
+                    {user.works && user.works.map((work, index) =>{
                         return(
-                            <li>{work.title}</li>
+                            <Main style={{width: "500px"}} key={index}>
+                                <WorkTitle>{work.title}</WorkTitle>
+                                <p>{work.description}</p>
+                                <a target="blank" href={work.deploy_url}>{work.deploy_url}</a>
+                            </Main>
+                            
                         )
                     })}
-
-                </div>
-                <Button>Adicionar Trabalho</Button>
+                    
+                </Works>
+                
             </Col2>
             <Col3>
-                <h4>Dados pessoais</h4>
+                <Titles>Dados pessoais</Titles>
+                <Label>Contato</Label>
                 <p>{user.contact}</p>
+                <Label>E-mail</Label>
                 <p>{user.email}</p>
+                <Label>Módulo</Label>
                 <p>{user.course_module}</p>
             </Col3>
         </Container>
