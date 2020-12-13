@@ -13,11 +13,13 @@ import {
   Logo,
   Bar,
   Container,
+  Form,
   Main,
   Label,
   Input,
   Errors,
   Button,
+  FormContainer,
 } from "./style";
 
 const Login = () => {
@@ -56,26 +58,28 @@ const Login = () => {
         <Bar />
       </HeaderDesktop>
       <ImageDesktop alt="register" src={image} />
-      <Title>Login</Title>
-      <form onSubmit={handleSubmit(handleForm)}>
-        <Main>
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input name="email" placeholder="Email" ref={register}></Input>
-            <Errors>{errors.email?.message}</Errors>
-          </div>
-          <br />
-          <div>
-            <Label htmlFor="name">Senha</Label>
-            <Input name="password" placeholder="Senha" ref={register}></Input>
-            <Errors>{errors.password?.message}</Errors>
-            <p></p>
-          </div>
-          <div>
-            <Button type="submit">Entrar</Button>
-          </div>
-        </Main>
-      </form>
+      <FormContainer>
+        <Title>Login</Title>
+        <Form onSubmit={handleSubmit(handleForm)}>
+          <Main>
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input name="email" placeholder="Email" ref={register}></Input>
+              <Errors>{errors.email?.message}</Errors>
+            </div>
+
+            <div>
+              <Label htmlFor="name">Senha</Label>
+              <Input name="password" placeholder="Senha" ref={register}></Input>
+              <Errors>{errors.password?.message}</Errors>
+              <p></p>
+            </div>
+            <div>
+              <Button type="submit">Entrar</Button>
+            </div>
+          </Main>
+        </Form>
+      </FormContainer>
     </Container>
   );
 };
