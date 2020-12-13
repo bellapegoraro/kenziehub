@@ -4,6 +4,23 @@ import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import ImgDecoration from "./images/undraw_Personal_site_re_c4bp.png";
+import {
+  Container,
+  Input,
+  FormImage,
+  FormInputs,
+  ImageProfile,
+  Button,
+  Title,
+  InputImg,
+  HeaderMobile,
+  HeaderDesktop,
+  ImageDecoration,
+  Bar,
+  Main,
+} from "./style";
+
 const ProfilePage = () => {
   const history = useHistory();
   const [data, setData] = useState({});
@@ -49,28 +66,38 @@ const ProfilePage = () => {
   };
 
   return (
-    <div>
-      <img src={data.avatar_url} />
-      <form>
-        <input type="file" id="avatar" onChange={handleChange} />
-      </form>
-      <form onSubmit={handleSubmit(handleForm)}>
-        <input name="name" placeholder="Nome" ref={register} />
-        <input name="contact" placeholder="Contato" ref={register} />
-        {password ? (
-          <>
-            <input
-              name="old_password"
-              placeholder="Antiga senha"
-              ref={register}
-            />
-            <input name="password" placeholder="Nova senha" ref={register} />{" "}
-          </>
-        ) : null}
-        <button>Teste</button>
-      </form>
-      <p onClick={() => setPassword(!password)}>Alterar senha</p>
-    </div>
+    <Container>
+      <HeaderMobile>
+        <Title>Editar perfil</Title>
+      </HeaderMobile>
+      <HeaderDesktop>
+        <Title>Editar perfil</Title>
+        <Bar></Bar>
+      </HeaderDesktop>
+      <ImageDecoration src={ImgDecoration} alt="imagem" />
+      <Main>
+        <ImageProfile src={data.avatar_url} />
+        <FormImage>
+          <InputImg type="file" id="avatar" onChange={handleChange} />
+        </FormImage>
+        <FormInputs onSubmit={handleSubmit(handleForm)}>
+          <Input name="name" placeholder="Nome" ref={register} />
+          <Input name="contact" placeholder="Contato" ref={register} />
+          {password ? (
+            <>
+              <Input
+                name="old_password"
+                placeholder="Antiga senha"
+                ref={register}
+              />
+              <Input name="password" placeholder="Nova senha" ref={register} />{" "}
+            </>
+          ) : null}
+        </FormInputs>
+        <Button onClick={() => setPassword(!password)}>Alterar senha</Button>
+        <Button>Salvar</Button>
+      </Main>
+    </Container>
   );
 };
 
