@@ -3,6 +3,10 @@ import styled from "styled-components";
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
+
+  label {
+    font-size: 0.8em;
+  }
 `;
 
 const Title = styled.h1`
@@ -11,7 +15,7 @@ const Title = styled.h1`
   margin-top: 5%;
 
   @media (min-width: 1000px) {
-    margin-top: 3%;
+    margin-top: 1%;
   }
 `;
 
@@ -28,6 +32,11 @@ const Input = styled.input`
 const FormImage = styled.form`
   color: #fff;
   height: 4vh;
+
+  @media (min-width: 1000px) {
+    /* height: 50vh;
+    width: 20vw; */
+  }
 `;
 
 const InputImg = styled.input`
@@ -53,12 +62,10 @@ const InputImg = styled.input`
     cursor: pointer;
     font-size: 0.9em;
   }
-`;
 
-const ImageDecoration = styled.img`
-  width: 40vw;
-  @media (max-width: 1000px) {
-    display: none;
+  @media (min-width: 1000px) {
+    /* margin-top: 100%;
+    margin-left: -95%; */
   }
 `;
 
@@ -70,6 +77,10 @@ const ImageProfile = styled.img`
     width: 30vw;
     height: 30vh;
   }
+
+  @media (min-width: 1000px) {
+    width: 15vw;
+  }
 `;
 
 const FormInputs = styled.form`
@@ -77,6 +88,13 @@ const FormInputs = styled.form`
   flex-direction: column;
   height: 20vh;
   justify-content: space-evenly;
+
+  @media (min-width: 1000px) {
+    height: 15vh;
+    /* width: 20vw;
+    height: 20vh; */
+    /* margin-top: 10%; */
+  }
 `;
 const Button = styled.button`
   background-color: #001f43;
@@ -88,6 +106,10 @@ const Button = styled.button`
   font-weight: 100;
   outline: none;
   cursor: pointer;
+
+  @media (min-width: 1000px) {
+    /* margin-right: 3%; */
+  }
 `;
 
 const HeaderMobile = styled.div`
@@ -109,7 +131,7 @@ const Bar = styled.div`
   background-color: #001f43;
   height: 10px;
   width: 75vw;
-  margin-top: 4.5%;
+  margin-top: 2.5%;
   margin-left: 1%;
 `;
 
@@ -120,9 +142,21 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  background-color: #eff0f3;
+  box-shadow: 2px 2px 14px -5px rgba(0, 0, 0, 0.75);
+  width: 70vw;
+  margin: 2% auto;
+
+  @media (min-width: 700px) {
+    width: 50vw;
+    margin: 2% auto;
+  }
 
   @media (min-width: 1000px) {
     width: 30vw;
+    align-items: center;
+    margin: 2% auto;
+    height: 80vh;
   }
 `;
 export {
@@ -136,7 +170,6 @@ export {
   InputImg,
   HeaderMobile,
   HeaderDesktop,
-  ImageDecoration,
   Bar,
   Main,
 };

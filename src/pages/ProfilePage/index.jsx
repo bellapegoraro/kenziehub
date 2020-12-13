@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import ImgDecoration from "./images/undraw_Personal_site_re_c4bp.png";
 import {
   Container,
   Input,
@@ -16,7 +15,6 @@ import {
   InputImg,
   HeaderMobile,
   HeaderDesktop,
-  ImageDecoration,
   Bar,
   Main,
 } from "./style";
@@ -74,14 +72,15 @@ const ProfilePage = () => {
         <Title>Editar perfil</Title>
         <Bar></Bar>
       </HeaderDesktop>
-      <ImageDecoration src={ImgDecoration} alt="imagem" />
       <Main>
         <ImageProfile src={data.avatar_url} />
         <FormImage>
           <InputImg type="file" id="avatar" onChange={handleChange} />
         </FormImage>
         <FormInputs onSubmit={handleSubmit(handleForm)}>
+          <label htmlFor="name">Nome</label>
           <Input name="name" placeholder="Nome" ref={register} />
+          <label htmlFor="contact">Contato</label>
           <Input name="contact" placeholder="Contato" ref={register} />
           {password ? (
             <>
