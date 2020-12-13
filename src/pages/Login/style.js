@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* justify-content: center; */
   height: 100vh;
   width: 100vw;
   @media (min-width: 1000px) {
@@ -46,30 +46,42 @@ const ImageMobile = styled.img`
 `;
 
 const Main = styled.div`
+  height: 20vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
   @media (min-width: 1000px) {
     margin-left: 20%;
+  }
+
+  div {
+    margin: 0px 50px;
   }
 `;
 
 const Title = styled.h1`
   color: #001f43;
-  margin-top: 3%;
+  width: 100%;
+  height: 5vh;
+  text-align: center;
+  /* margin-top: 3%;
   margin-left: 3%;
-  margin-bottom: 4%;
+  margin-bottom: 4%; */
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  width: 60vw;
-  height: 80vh;
+  align-items: center;
+  width: 100%;
   @media (min-width: 700px) {
-    width: 30vw;
+    width: 100vw;
   }
   @media (min-width: 1000px) {
     height: 74vh;
-    width: 18vw;
+    width: 100%;
   }
 `;
 
@@ -109,13 +121,15 @@ const Button = styled.button`
   width: 150px;
   border-radius: 10px;
   font-weight: 100;
-  margin-left: 30%;
+  /* margin-left: 30%; */
   margin-top: 5%;
 `;
 const Label = styled.label`
+  display: none;
   font-size: 0.8em;
   @media (min-width: 1000px) {
     font-size: 1em;
+    display: none;
   }
 `;
 const Logo = styled.h1`
@@ -133,11 +147,22 @@ const Bar = styled.div`
 `;
 
 const ImageDesktop = styled.img`
-  width: 500px;
-  height: 500px;
-  margin-left: 10%;
+  width: 70vw;
+  height: 70vh;
   @media (max-width: 1000px) {
     display: none;
+  }
+`;
+
+const FormContainer = styled.div`
+  margin-top: 5vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (min-width: 1000px) {
+    width: 30vw;
   }
 `;
 
@@ -156,4 +181,5 @@ export {
   Errors,
   Button,
   Label,
+  FormContainer,
 };
