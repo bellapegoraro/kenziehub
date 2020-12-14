@@ -40,21 +40,19 @@ const FormImage = styled.form`
 `;
 
 const InputImg = styled.input`
-  color: #eff0f3;
+  color: #001f43;
+  font-size: 0.7em;
   ::-webkit-file-upload-button {
     visibility: hidden;
     display: none;
   }
 
   &:before {
-    margin-left: 26%;
     content: "Escolha um arquivo";
-    display: inline-block;
     background-color: #001f43;
     color: #fff;
     border: none;
     border-radius: 20px;
-    border-radius: 3px;
     padding: 9px;
     outline: none;
     white-space: nowrap;
@@ -62,6 +60,7 @@ const InputImg = styled.input`
     -webkit-user-select: none;
     cursor: pointer;
     font-size: 0.9em;
+    height: 35px;
   }
 
   @media (min-width: 1000px) {
@@ -120,6 +119,8 @@ const ButtonPassword = styled.button`
 `;
 
 const HeaderMobile = styled.div`
+  width: 100vw;
+  text-align: center;
   @media (min-width: 1000px) {
     display: none;
   }
@@ -151,7 +152,7 @@ const Main = styled.div`
   justify-content: space-evenly;
   background-color: #eff0f3;
   box-shadow: 2px 2px 14px -5px rgba(0, 0, 0, 0.75);
-  width: 70vw;
+  width: 85vw;
   margin: 5% auto;
 
   @media (min-width: 700px) {
