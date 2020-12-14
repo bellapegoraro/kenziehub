@@ -19,14 +19,12 @@ const Input = styled.input`
   @media (min-width: 700px) {
     margin-top: 2%;
     margin-left: 0;
-    margin-right: 5%;
   }
 
   @media (min-width: 1000px) {
     width: 330px;
     margin-top: 12%;
     margin-right: 0;
-    margin-left: 5%;
   }
 `;
 const Button = styled.button`
@@ -34,12 +32,14 @@ const Button = styled.button`
   background-color: white;
   border: none;
   margin-left: 3%;
+  outline: none;
+  cursor: pointer;
   @media (min-width: 700px) {
     margin-top: 2%;
-    margin-right: 3%;
   }
   @media (min-width: 1000px) {
     margin-top: 12%;
+    margin-right: 4%;
   }
 `;
 
