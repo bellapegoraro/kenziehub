@@ -29,6 +29,7 @@ import {Link, useHistory} from 'react-router-dom';
 import api from "../../services/api";
 import {useState, useEffect} from 'react';
 import Menu from '../../components/Menu/';
+import Slides from '../../components/Carousel';
 
 const UserProfile = () =>{
     const history = useHistory();    
@@ -89,22 +90,7 @@ const UserProfile = () =>{
                     <Button onClick={() => setVisibleWork(true)}>Adicionar Trabalho</Button>
                 </WorkHeader>
                { visibleWork && <AddWork setVisibleWork={setVisibleWork}/>}
-                
-                <Works>
-                    {user.works && user.works.map((work, index) =>{
-                        return(
-                            <>
-                                <Main style={{width: "90%"}} key={index}>
-                                <WorkTitle>{work.title}</WorkTitle>
-                                <p>{work.description}</p>
-                                <a target="blank" href={work.deploy_url}>{work.deploy_url}</a>
-                            </Main>
-                            </>
-                            
-                        )
-                    })}
-                    
-                </Works>
+                <Slides works={user.works}/>
                 
             </Col2>
             <Col3>
