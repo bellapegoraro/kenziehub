@@ -17,8 +17,8 @@ export const getUsersThunk = () => (dispatch, getState) => {
 };
 
 export const getUserTokenReducer = (data) => async (dispatch, getState) => {
-  const response = await api
-    .post("/sessions", { data })
-    .catch((err) => console.log(err));
-  dispatch(getUserToken(response.data.token));
+  const token = localStorage.getItem("authToken");
+  if (token) {
+    dispatch(getUserToken(token));
+  }
 };
