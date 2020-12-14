@@ -39,14 +39,13 @@ const Login = () => {
   });
 
   const handleForm = async (data) => {
+    console.log(data);
     const response = await api.post("/sessions", { ...data });
-    console.log(response);
     if (response.status === 200) {
       localStorage.setItem("authToken", response.data.token);
       history.push("/devs");
       return;
     }
-    console.log(response.status);
   };
 
   return (

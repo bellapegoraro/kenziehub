@@ -6,11 +6,14 @@ import { Container, Image, Main, Techs, Infos, Email } from "./style";
 
 const List = () => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
+  const users = useSelector((state) => state.users.listOfUsers);
   const filtered = useSelector((state) => state.search);
+
   useEffect(() => {
     dispatch(getUsersThunk());
+    console.log(users);
   }, []);
+
   return (
     <Container>
       {filtered.length !== 0
