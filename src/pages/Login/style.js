@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -121,8 +122,8 @@ const Button = styled.button`
   width: 150px;
   border-radius: 10px;
   font-weight: 100;
-  /* margin-left: 30%; */
   margin-top: 5%;
+  margin-bottom: 10%;
 `;
 const Label = styled.label`
   display: none;
@@ -166,6 +167,17 @@ const FormContainer = styled.div`
   }
 `;
 
+const LinkStyled = styled(Link)`
+  color: #666666;
+  text-decoration: none;
+  margin-top: 60%;
+  margin-left: 10%;
+
+  @media (min-width: 700px) {
+    margin-top: 1%;
+  }
+`;
+
 export {
   Container,
   HeaderMobile,
@@ -182,4 +194,5 @@ export {
   Button,
   Label,
   FormContainer,
+  LinkStyled,
 };
