@@ -21,7 +21,6 @@ import {
     WorkTitle,
     WorkHeader,
 } from './style';
-import {Main} from '../../components/List/style';
 import AddWork from '../../components/addWork';
 import AddTech from '../../components/addTech';
 import userAvatar from './images/user-avatar.png'
@@ -45,10 +44,11 @@ const UserProfile = () =>{
         <>
         <Menu/>
         <Header>
-            <HeaderTitle>KenzieHub</HeaderTitle>
-            <HeaderBar/>
+                <HeaderTitle>KenzieHub</HeaderTitle>
+                <HeaderBar/>
         </Header>
         <Container>
+            
             <Col1>
                 <Name>{user.name}</Name>
                 {user.avatar_url ? <Avatar src={user.avatar_url} alt={user.name}/>:<Avatar src={userAvatar} alt={user.name}/>}
@@ -76,20 +76,18 @@ const UserProfile = () =>{
                                  <Bar style={{width:"180px"}}></Bar> : 
                                  <Bar style={{width:"100px"}}></Bar>}
                             </Tecnologia>
-                           
 
                         )
                     })}
                 </Tecnologias>
-                <Button onClick={() => setVisibleTech(true)}>Adicionar Tecnologia</Button>
-                
+                <Button onClick={() => setVisibleTech(true)}>Adicionar Tecnologia</Button>   
             </Col1>
             <Col2>
                 <WorkHeader>
                     <Titles>Trabalhos</Titles>
                 </WorkHeader>
                { visibleWork && <AddWork setVisibleWork={setVisibleWork}/>}
-                <Slides works={user.works}/>
+                <Slides url={`profile`}/>
                 <Button onClick={() => setVisibleWork(true)}>Adicionar Trabalho</Button>
                 
             </Col2>

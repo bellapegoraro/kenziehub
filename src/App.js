@@ -29,7 +29,7 @@ function App() {
         <Route path="/edit">
           <ProfilePage />
         </Route>
-        <Route path="/user/:id">
+        <Route path="/user">
           <OtherUser/>
         </Route>
         <Route exact path="/">
