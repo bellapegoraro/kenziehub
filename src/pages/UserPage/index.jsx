@@ -80,17 +80,17 @@ const UserProfile = () =>{
 
                         )
                     })}
-                    <Button onClick={() => setVisibleTech(true)}>Adicionar Tecnologia</Button>
                 </Tecnologias>
+                <Button onClick={() => setVisibleTech(true)}>Adicionar Tecnologia</Button>
                 
             </Col1>
             <Col2>
                 <WorkHeader>
                     <Titles>Trabalhos</Titles>
-                    <Button onClick={() => setVisibleWork(true)}>Adicionar Trabalho</Button>
                 </WorkHeader>
                { visibleWork && <AddWork setVisibleWork={setVisibleWork}/>}
                 <Slides works={user.works}/>
+                <Button onClick={() => setVisibleWork(true)}>Adicionar Trabalho</Button>
                 
             </Col2>
             <Col3>

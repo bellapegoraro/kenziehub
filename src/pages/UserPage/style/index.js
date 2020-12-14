@@ -8,8 +8,9 @@ const Container = Styled.div `
     margin: 0 auto;
     color: #001F43;
     z-index: -1;
-    @media(max-width: 800px){
+    @media(max-width: 1000px){
         flex-direction: column;
+        height: 100vh;
       }
     
 `
@@ -19,8 +20,9 @@ const Col1 = Styled.div `
     align-items: center;
     box-shadow: 3px 3px 5px #00000029;
     padding: 2%;
-    @media(max-width: 800px){
+    @media(max-width: 1000px){
         box-shadow: none;
+        
       }
 `
 const Col2 = Styled.div `
@@ -93,6 +95,8 @@ const Button = Styled.button `
     color: #fff;
     width: 120px;
     height: 40px;
+    font-size: 0.8rem;
+    margin: 2% auto;
     &:hover{
         background-color: #023b7d;
     }
@@ -118,7 +122,8 @@ const WorkTitle = Styled.h5 `
 const Header = Styled.div `
     display: flex;
     margin-bottom: 2%;
-    @media(max-width: 800px){
+    margin-top: 5%;
+    @media(max-width: 1000px){
         display: none;
       }
 `
@@ -132,7 +137,7 @@ const HeaderBar = Styled.div `
     height: 15px;
     margin-left: 2%;
     margin-top: 1%;
-    @media(max-width: 800px){
+    @media(max-width: 1000px){
         margin-top: 5%;
       }
 `
