@@ -7,52 +7,48 @@ import {
     Name,
     Avatar,
     Bio,
-    StyledLink,
     Button,
     Tecnologias,
     Titles,
     Bar,
     Tecnologia,
     Label,
-    Works,
     Header,
     HeaderTitle,
     HeaderBar,
-    WorkTitle,
     WorkHeader,
-} from './style';
-import AddWork from '../../components/addWork';
-import AddTech from '../../components/addTech';
-import userAvatar from './images/user-avatar.png'
-import {Link, useHistory} from 'react-router-dom';
-import api from "../../services/api";
-import {useState, useEffect} from 'react';
+} from '../UserPage/style';
+import userAvatar from '../UserPage/images/user-avatar.png'
 import Menu from '../../components/Menu/';
 import Slides from '../../components/Carousel';
+import {useHistory} from 'react-router-dom';
+import {useEffect, useState} from 'react'
+import api from '../../services/api';
 
-const UserProfile = () =>{
-    const history = useHistory();    
+
+const OtherUser = () =>{
+    
+    const history = useHistory();
+    const id = localStorage.getItem('Id')
     const [user, setUser] = useState({})
-    const [visibleWork, setVisibleWork] = useState(false)
-    const [visibleTech, setVisibleTech] = useState(false)
 
+    
     useEffect(() =>{
-        api.get("/profile").then((res) => setUser(res.data))
+        api.get(`users/${id}`)
+        .then((res) => setUser(res.data))
     }, []);
-
+       
     return(
         <>
         <Menu/>
         <Header>
-                <HeaderTitle>KenzieHub</HeaderTitle>
-                <HeaderBar/>
+            <HeaderTitle>KenzieHub</HeaderTitle>
+            <HeaderBar/>
         </Header>
         <Container>
-            
             <Col1>
                 <Name>{user.name}</Name>
                 {user.avatar_url ? <Avatar src={user.avatar_url} alt={user.name}/>:<Avatar src={userAvatar} alt={user.name}/>}
-                <StyledLink onClick={() => history.push('/edit')}>Editar Perfil</StyledLink>
                 <Bio>{user.bio}</Bio>
                 <Col4>
                 <Titles>Dados pessoais</Titles>
@@ -65,7 +61,6 @@ const UserProfile = () =>{
                 </Col4>
                 <Tecnologias>
                     <Titles>Tecnologias</Titles>
-                    { visibleTech && <AddTech setVisibleTech={setVisibleTech}/>}
                     {user.techs && user.techs.map((tech) =>{
                         return(
                             <Tecnologia>
@@ -76,19 +71,15 @@ const UserProfile = () =>{
                                  <Bar style={{width:"180px"}}></Bar> : 
                                  <Bar style={{width:"100px"}}></Bar>}
                             </Tecnologia>
-
                         )
                     })}
-                </Tecnologias>
-                <Button onClick={() => setVisibleTech(true)}>Adicionar Tecnologia</Button>   
+                </Tecnologias>               
             </Col1>
             <Col2>
                 <WorkHeader>
                     <Titles>Trabalhos</Titles>
                 </WorkHeader>
-               { visibleWork && <AddWork setVisibleWork={setVisibleWork}/>}
-                <Slides url={`profile`}/>
-                <Button onClick={() => setVisibleWork(true)}>Adicionar Trabalho</Button>
+                <Slides url={`users/${id}`}/>
                 
             </Col2>
             <Col3>
@@ -101,11 +92,9 @@ const UserProfile = () =>{
                 <p>{user.course_module}</p>
             </Col3>
         </Container>
-        </>
         
+        </>
     )
-
-    
 }
 
-export default UserProfile
+export default OtherUser
