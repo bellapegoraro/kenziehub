@@ -24,8 +24,8 @@ import {
 } from "./style";
 
 const RegisterForm = () => {
-  const dispatch = useDispatch();
   const history = useHistory();
+  const dispatch = useDispatch();
   const schema = yup.object().shape({
     name: yup
       .string()
@@ -51,9 +51,7 @@ const RegisterForm = () => {
 
   const handleForm = (data) => {
     dispatch(registerUserThunk(data));
-    setTimeout(() => {
-      history.push("/login");
-    }, 1500);
+    history.push("/login");
   };
 
   return (
