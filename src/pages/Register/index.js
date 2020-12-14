@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { registerUserThunk } from "../../store/modules/register/thunk";
 import { useDispatch } from "react-redux";
 import image from "./imagens/undraw_secure_login_pdn4.svg";
+import { useHistory } from "react-router-dom";
 import {
   Container,
   HeaderMobile,
@@ -23,6 +24,7 @@ import {
 } from "./style";
 
 const RegisterForm = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const schema = yup.object().shape({
     name: yup
@@ -49,6 +51,7 @@ const RegisterForm = () => {
 
   const handleForm = (data) => {
     dispatch(registerUserThunk(data));
+    history.push("/login");
   };
 
   return (
