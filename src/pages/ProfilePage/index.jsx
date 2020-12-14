@@ -4,6 +4,22 @@ import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import {
+  Container,
+  Input,
+  FormImage,
+  FormInputs,
+  ImageProfile,
+  Button,
+  Title,
+  InputImg,
+  HeaderMobile,
+  HeaderDesktop,
+  Bar,
+  Main,
+  ButtonPassword,
+} from "./style";
+
 const ProfilePage = () => {
   const history = useHistory();
   const [data, setData] = useState({});
@@ -49,28 +65,48 @@ const ProfilePage = () => {
   };
 
   return (
-    <div>
-      <img src={data.avatar_url} />
-      <form>
-        <input type="file" id="avatar" onChange={handleChange} />
-      </form>
-      <form onSubmit={handleSubmit(handleForm)}>
-        <input name="name" placeholder="Nome" ref={register} />
-        <input name="contact" placeholder="Contato" ref={register} />
-        {password ? (
-          <>
-            <input
-              name="old_password"
-              placeholder="Antiga senha"
-              ref={register}
-            />
-            <input name="password" placeholder="Nova senha" ref={register} />{" "}
-          </>
-        ) : null}
-        <button>Teste</button>
-      </form>
-      <p onClick={() => setPassword(!password)}>Alterar senha</p>
-    </div>
+    <Container>
+      <HeaderMobile>
+        <Title>Editar perfil</Title>
+      </HeaderMobile>
+      <HeaderDesktop>
+        <Title>Editar perfil</Title>
+        <Bar></Bar>
+      </HeaderDesktop>
+      <Main>
+        <ImageProfile src={data.avatar_url} />
+        <FormImage>
+          <InputImg type="file" id="avatar" onChange={handleChange} />
+        </FormImage>
+        <FormInputs onSubmit={handleSubmit(handleForm)}>
+          <label htmlFor="name">Nome</label>
+          <Input name="name" placeholder="Nome" ref={register} />
+          <label htmlFor="contact">Contato</label>
+          <Input name="contact" placeholder="Contato" ref={register} />
+          <ButtonPassword onClick={() => setPassword(!password)}>
+            Alterar senha
+          </ButtonPassword>
+          {password ? (
+            <>
+              <label htmlFor="old_password">Senha antiga</label>
+              <Input
+                name="old_password"
+                placeholder="Antiga senha"
+                ref={register}
+              />
+              <label htmlFor="password">Nova senha</label>
+              <Input
+                name="password"
+                placeholder="Nova senha"
+                ref={register}
+              />{" "}
+            </>
+          ) : null}
+        </FormInputs>
+
+        <Button>Salvar</Button>
+      </Main>
+    </Container>
   );
 };
 
