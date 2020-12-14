@@ -33,7 +33,7 @@ const List = () => {
             </Main>
           ))
         : users?.map(({ name, email, techs, avatar_url }, index) => (
-            <Main key={index}>
+            <Main key={index} onClick={() => console.log(name)}>
               {avatar_url !== null ? (
                 <Image src={avatar_url} alt={name} />
               ) : (
