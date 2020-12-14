@@ -57,7 +57,7 @@ const ProfilePage = () => {
       <form onSubmit={handleSubmit(handleForm)}>
         <input name="name" placeholder="Nome" ref={register} />
         <input name="contact" placeholder="Contato" ref={register} />
-        {password ? (
+        {password && (
           <>
             <input
               name="old_password"
@@ -66,7 +66,7 @@ const ProfilePage = () => {
             />
             <input name="password" placeholder="Nova senha" ref={register} />{" "}
           </>
-        ) : null}
+        )}
         <button>Teste</button>
       </form>
       <p onClick={() => setPassword(!password)}>Alterar senha</p>
