@@ -4,7 +4,7 @@ export const MenuContainerOpen = styled.div`
   width: 70vw;
   height: 50vh;
   background-color: white;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   background-color: #0e1f43;
@@ -43,7 +43,7 @@ export const LinkContainer = styled.div`
 `;
 
 export const MenuContainerClose = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   width: 50px;

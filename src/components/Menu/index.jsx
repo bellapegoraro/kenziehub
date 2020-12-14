@@ -1,6 +1,6 @@
 import FontAwesome from "react-fontawesome";
 import { MenuContainerOpen, MenuContainerClose, LinkContainer } from "./style";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 const Menu = () => {
@@ -18,7 +18,7 @@ const Menu = () => {
             style={{ color: "white" }}
             onClick={() => setIsOpen(!isOpen)}
           />
-          <LinkContainer onClick={() => history.push("/user")}>
+          <LinkContainer onClick={() => history.push("/profile")}>
             <FontAwesome
               className="fas fa-home"
               size="2x"
@@ -58,6 +58,16 @@ const Menu = () => {
                 <span>Login</span>
               </LinkContainer>
             </>
+          )}
+          {token ? null : (
+            <LinkContainer onClick={() => history.push("/register")}>
+              <FontAwesome
+                className="fas fa-user-plus"
+                size="2x"
+                style={{ color: "white" }}
+              />
+              <span>Register</span>
+            </LinkContainer>
           )}
         </MenuContainerOpen>
       ) : (

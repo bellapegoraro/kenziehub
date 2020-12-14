@@ -1,16 +1,29 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { loginThunk } from "../../store/modules/login/thunk";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
 import api from "../../services/api";
+import image from "./imagens/undraw_authentication_fsn5.svg";
+import {
+  Title,
+  HeaderDesktop,
+  HeaderMobile,
+  ImageMobile,
+  ImageDesktop,
+  Logo,
+  Bar,
+  Container,
+  Form,
+  Main,
+  Label,
+  Input,
+  Errors,
+  Button,
+  FormContainer,
+} from "./style";
+
 const Login = () => {
-  const [authentication, setAuthentication] = useState(false);
-  const token = localStorage.getItem("authToken");
   const history = useHistory();
-  const dispatch = useDispatch();
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório"),
 
@@ -36,21 +49,38 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
-      <div>
-        <input placeholder="email" name="email" ref={register}></input>
-        {errors.email?.message}
-      </div>
-      <p></p>
-      <div>
-        <input placeholder="Senha" name="password" ref={register}></input>
-        {errors.password?.message}
-        <p></p>
-      </div>
-      <div>
-        <button type="submit">Entrar</button>
-      </div>
-    </form>
+    <Container>
+      <HeaderMobile>
+        <ImageMobile alt="register" src={image} />
+      </HeaderMobile>
+      <HeaderDesktop>
+        <Logo>KenzieHub</Logo>
+        <Bar />
+      </HeaderDesktop>
+      <ImageDesktop alt="register" src={image} />
+      <FormContainer>
+        <Title>Login</Title>
+        <Form onSubmit={handleSubmit(handleForm)}>
+          <Main>
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input name="email" placeholder="Email" ref={register}></Input>
+              <Errors>{errors.email?.message}</Errors>
+            </div>
+
+            <div>
+              <Label htmlFor="name">Senha</Label>
+              <Input name="password" placeholder="Senha" ref={register}></Input>
+              <Errors>{errors.password?.message}</Errors>
+              <p></p>
+            </div>
+            <div>
+              <Button type="submit">Entrar</Button>
+            </div>
+          </Main>
+        </Form>
+      </FormContainer>
+    </Container>
   );
 };
 
