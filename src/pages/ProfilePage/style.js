@@ -40,6 +40,7 @@ const FormImage = styled.form`
 `;
 
 const InputImg = styled.input`
+  color: #eff0f3;
   ::-webkit-file-upload-button {
     visibility: hidden;
     display: none;
@@ -86,14 +87,10 @@ const ImageProfile = styled.img`
 const FormInputs = styled.form`
   display: flex;
   flex-direction: column;
-  height: 20vh;
-  justify-content: space-evenly;
+  height: 30vh;
 
   @media (min-width: 1000px) {
-    height: 15vh;
-    /* width: 20vw;
-    height: 20vh; */
-    /* margin-top: 10%; */
+    height: 35vh;
   }
 `;
 const Button = styled.button`
@@ -106,10 +103,20 @@ const Button = styled.button`
   font-weight: 100;
   outline: none;
   cursor: pointer;
+`;
 
-  @media (min-width: 1000px) {
-    /* margin-right: 3%; */
-  }
+const ButtonPassword = styled.button`
+  background-color: #001f43;
+  color: #fff;
+  border: none;
+  height: 20px;
+  margin: 2% auto;
+  width: 110px;
+  font-size: 0.7em;
+  border-radius: 10px;
+  font-weight: 100;
+  outline: none;
+  cursor: pointer;
 `;
 
 const HeaderMobile = styled.div`
@@ -136,7 +143,7 @@ const Bar = styled.div`
 `;
 
 const Main = styled.div`
-  height: 80vh;
+  height: 70vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -145,11 +152,12 @@ const Main = styled.div`
   background-color: #eff0f3;
   box-shadow: 2px 2px 14px -5px rgba(0, 0, 0, 0.75);
   width: 70vw;
-  margin: 2% auto;
+  margin: 5% auto;
 
   @media (min-width: 700px) {
     width: 50vw;
     margin: 2% auto;
+    height: 75vh;
   }
 
   @media (min-width: 1000px) {
@@ -172,4 +180,5 @@ export {
   HeaderDesktop,
   Bar,
   Main,
+  ButtonPassword,
 };

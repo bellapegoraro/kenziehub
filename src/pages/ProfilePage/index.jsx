@@ -17,6 +17,7 @@ import {
   HeaderDesktop,
   Bar,
   Main,
+  ButtonPassword,
 } from "./style";
 
 const ProfilePage = () => {
@@ -82,18 +83,27 @@ const ProfilePage = () => {
           <Input name="name" placeholder="Nome" ref={register} />
           <label htmlFor="contact">Contato</label>
           <Input name="contact" placeholder="Contato" ref={register} />
+          <ButtonPassword onClick={() => setPassword(!password)}>
+            Alterar senha
+          </ButtonPassword>
           {password ? (
             <>
+              <label htmlFor="old_password">Senha antiga</label>
               <Input
                 name="old_password"
                 placeholder="Antiga senha"
                 ref={register}
               />
-              <Input name="password" placeholder="Nova senha" ref={register} />{" "}
+              <label htmlFor="password">Nova senha</label>
+              <Input
+                name="password"
+                placeholder="Nova senha"
+                ref={register}
+              />{" "}
             </>
           ) : null}
         </FormInputs>
-        <Button onClick={() => setPassword(!password)}>Alterar senha</Button>
+
         <Button>Salvar</Button>
       </Main>
     </Container>
