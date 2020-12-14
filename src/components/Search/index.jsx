@@ -14,6 +14,7 @@ const Search = () => {
 
   return (
     <Container>
+      <Input value={input} onChange={(e) => handleInput(e)}></Input>
       <Button onClick={() => dispatch(searchUserThunk(input))}>
         <FontAwesome
           className="fas fa-search"
@@ -21,7 +22,6 @@ const Search = () => {
           style={{ color: "gray" }}
         />
       </Button>
-      <Input value={input} onChange={(e) => handleInput(e)}></Input>
     </Container>
   );
 };
