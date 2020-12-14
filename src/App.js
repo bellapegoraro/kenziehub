@@ -1,5 +1,5 @@
 import { GlobalStyle } from "./styles";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link} from "react-router-dom";
 import Register from "./pages/Register/index";
 import UserProfile from "./pages/UserPage";
 import Login from "./pages/Login";
@@ -8,6 +8,7 @@ import Users from "./pages/UserList";
 import ProfilePage from "./pages/ProfilePage";
 
 function App() {
+
   return (
     <>
       <GlobalStyle />
@@ -15,7 +16,7 @@ function App() {
         <Route path="/register">
           <Register></Register>
         </Route>
-        <Route path="/profile/">
+        <Route path="/profile">
           <UserProfile/>
         </Route>
         <Route exact path="/login">
