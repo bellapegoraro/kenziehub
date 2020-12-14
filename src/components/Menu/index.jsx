@@ -18,26 +18,37 @@ const Menu = () => {
             style={{ color: "white" }}
             onClick={() => setIsOpen(!isOpen)}
           />
-          <LinkContainer onClick={() => history.push("/profile")}>
+          <LinkContainer onClick={() => history.push('/')}>
             <FontAwesome
               className="fas fa-home"
               size="2x"
               style={{ color: "white" }}
             />
-            <span>home</span>
+            <span>Home</span>
           </LinkContainer>
+         { token && <LinkContainer onClick={() => history.push('/profile/')}>
+            <FontAwesome
+              className="fas fa-user"
+              size="2x"
+              style={{ color: "white" }}
+            />
+            <span>Perfil</span>
+          </LinkContainer>}
           <LinkContainer onClick={() => history.push("/devs")}>
             <FontAwesome
               className="fas fa-laptop"
               size="2x"
               style={{ color: "white" }}
             />
-            <span>devs</span>
+            <span>Devs</span>
           </LinkContainer>
           {token ? (
             <>
               <LinkContainer
-                onClick={() => localStorage.removeItem("authToken")}
+                onClick={() => {
+                  localStorage.removeItem("authToken")
+                  history.push('/devs')
+                }}
               >
                 <FontAwesome
                   className="far fa-times-circle"
