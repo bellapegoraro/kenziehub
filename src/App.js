@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Home from "./pages/HomeScreen";
 import Users from "./pages/UserList";
 import ProfilePage from "./pages/ProfilePage";
-import OtherUser from "./pages/OtherUser";
+import OtherUser from './pages/OtherUser';
 
 function App() {
 
@@ -29,8 +29,8 @@ function App() {
         <Route path="/edit">
           <ProfilePage />
         </Route>
-        <Route exact path="/dev">
-          <OtherUser />
+        <Route path="/user/:id">
+          <OtherUser/>
         </Route>
         <Route exact path="/">
           <Home />

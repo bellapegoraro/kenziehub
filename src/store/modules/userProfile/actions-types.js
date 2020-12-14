@@ -1,0 +1,1 @@
+export const SET_USER = '@userProfile/SET_USER';
