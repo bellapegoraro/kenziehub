@@ -1,7 +1,7 @@
 export const types = {
   getUserList: "@users/GET_LIST",
-  getSpecificUser: "@users/GET_USER",
-  getUserWorks: "@users/GET_WORKS",
-  getUserTechs: "@users/GET_TECHS",
-  getUserToken: "@users/GET_TOKEN",
+  SpecificUser: "@users/GET_USER",
+  UserWorks: "@users/GET_WORKS",
+  UserTechs: "@users/GET_TECHS",
+  UserToken: "@users/GET_TOKEN",
 };

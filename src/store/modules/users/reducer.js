@@ -13,15 +13,15 @@ const getUsersReducer = (state = stateObject, actions) => {
       state.listOfUsers = [...state.listOfUsers, ...actions.usersList];
       return state;
 
-    case types.getUserToken:
+    case types.UserToken:
       state.token = actions.token;
       return state;
 
-    case types.getUserWorks:
+    case types.UserWorks:
       state.userWorks = [...state.userWorks, ...actions.works];
       return state;
 
-    case types.getUserTechs:
+    case types.UserTechs:
       state.userTechs = [...state.userTechs, actions.techs];
       return state;
 

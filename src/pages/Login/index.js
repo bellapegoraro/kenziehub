@@ -23,7 +23,11 @@ import {
   LinkStyled,
 } from "./style";
 
+import { useDispatch } from "react-redux";
+import { getUserTokenReducer } from "../../store/modules/users/thunk";
+
 const Login = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório"),
@@ -39,10 +43,10 @@ const Login = () => {
   });
 
   const handleForm = async (data) => {
-    console.log(data);
     const response = await api.post("/sessions", { ...data });
     if (response.status === 200) {
-      localStorage.setItem("authToken", response.data.token);
+      console.log(response);
+      dispatch(getUserTokenReducer(response.data.token));
       history.push("/devs");
       return;
     }

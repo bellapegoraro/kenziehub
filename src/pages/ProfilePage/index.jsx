@@ -20,6 +20,7 @@ import {
   ButtonPassword,
 } from "./style";
 import Menu from "../../components/Menu";
+import { useSelector } from "react-redux";
 
 const ProfilePage = () => {
   const history = useHistory();
@@ -49,7 +50,11 @@ const ProfilePage = () => {
     console.log(response);
   };
 
+  const { token } = useSelector((state) => state);
+
   useEffect(() => {
+    console.log(token);
+
     api
       .get("/profile")
       .then((res) => setData(res.data))

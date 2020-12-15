@@ -6,16 +6,16 @@ export const getUserList = (usersList) => ({
 });
 
 export const getUserWorks = (works) => ({
-  type: types.getUserWors,
+  type: types.UserWorks,
   works,
 });
 
 export const getUserTechs = (techs) => ({
-  type: types.getUserTechs,
+  type: types.UserTechs,
   techs,
 });
 
 export const getUserToken = (token) => ({
-  type: types.getUserToken,
+  type: types.UserToken,
   token,
 });
