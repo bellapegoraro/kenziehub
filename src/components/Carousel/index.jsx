@@ -1,36 +1,38 @@
-import {useState, useEffect} from 'react';
-import api from '../../services/api';
-import { Carousel } from 'antd';
-import 'antd/dist/antd.css';
-import {Main} from '../List/style';
-import {WorkTitle} from '../../pages/UserPage/style';
+import { useState, useEffect } from "react";
+import api from "../../services/api";
+import { Carousel } from "antd";
+import "antd/dist/antd.css";
+import { Main } from "../List/style";
+import { WorkTitle } from "../../pages/UserPage/style";
 
-const Slides = ({url}) =>{
-    const onChange = (a, b, c) => {
-        console.log(a, b, c);
-      }
-     
-    const [works, setWorks] = useState([])    
+const Slides = ({ url }) => {
+  const onChange = (a, b, c) => {
+    // console.log(a, b, c);
+  };
 
-    useEffect(() =>{
-        api.get(`/${url}`).then((res) => setWorks(res.data.works))
-    }, []);
+  const [works, setWorks] = useState([]);
 
-    return(
-        <>
-            <Carousel autoplay afterChange={onChange}>
-                {works.map((work, index) =>{
-                    return(
-                        <Main key={index}>
-                            <WorkTitle>{work.title}</WorkTitle>
-                            <p>{work.description}</p>
-                            <a target="blank" href={work.deploy_url}>{work.deploy_url}</a>
-                        </Main>
-                    )
-                })}
-            </Carousel>
-        </> 
-    )
-}
+  useEffect(() => {
+    api.get(`/${url}`).then((res) => setWorks(res.data.works));
+  }, []);
 
-export default Slides
+  return (
+    <>
+      <Carousel autoplay afterChange={onChange}>
+        {works.map((work, index) => {
+          return (
+            <Main key={index}>
+              <WorkTitle>{work.title}</WorkTitle>
+              <p>{work.description}</p>
+              <a target="blank" href={work.deploy_url}>
+                {work.deploy_url}
+              </a>
+            </Main>
+          );
+        })}
+      </Carousel>
+    </>
+  );
+};
+
+export default Slides;
