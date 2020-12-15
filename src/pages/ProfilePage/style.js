@@ -31,17 +31,18 @@ const Input = styled.input`
 
 const FormImage = styled.form`
   color: #fff;
-  height: 4vh;
+  height: 7vh;
 
   @media (min-width: 1000px) {
-    /* height: 50vh;
-    width: 20vw; */
+    height: 6vh;
   }
 `;
 
 const InputImg = styled.input`
   color: #001f43;
-  font-size: 0.7em;
+  font-size: 0.8em;
+  margin-left: 20%;
+
   ::-webkit-file-upload-button {
     visibility: hidden;
     display: none;
@@ -50,6 +51,11 @@ const InputImg = styled.input`
   &:before {
     content: "Escolha um arquivo";
     background-color: #001f43;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 8%;
+    width: 30vw;
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -60,12 +66,15 @@ const InputImg = styled.input`
     -webkit-user-select: none;
     cursor: pointer;
     font-size: 0.9em;
-    height: 35px;
-  }
+    outline: none;
 
-  @media (min-width: 1000px) {
-    /* margin-top: 100%;
-    margin-left: -95%; */
+    @media (min-width: 700px) {
+      width: 18vw;
+    }
+
+    @media (min-width: 1000px) {
+      width: 9.5vw;
+    }
   }
 `;
 
@@ -79,7 +88,8 @@ const ImageProfile = styled.img`
   }
 
   @media (min-width: 1000px) {
-    width: 15vw;
+    width: 13vw;
+    height: 25vh;
   }
 `;
 
@@ -144,7 +154,7 @@ const Bar = styled.div`
 `;
 
 const Main = styled.div`
-  height: 70vh;
+  height: 75vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -158,14 +168,14 @@ const Main = styled.div`
   @media (min-width: 700px) {
     width: 50vw;
     margin: 2% auto;
-    height: 75vh;
+    height: 80vh;
   }
 
   @media (min-width: 1000px) {
     width: 30vw;
     align-items: center;
-    margin: 2% auto;
-    height: 80vh;
+    margin: 0 auto;
+    height: 85vh;
   }
 `;
 export {
