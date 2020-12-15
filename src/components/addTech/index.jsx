@@ -44,7 +44,7 @@ const AddTech = ({ setVisibleTech }) => {
                 <Label>Nível de conhecimento</Label>
                 <Input
                 list="status"
-                 name="status" ref={register}/>
+                name="status" ref={register}/>
                 <Error>{errors.status?.message}</Error>
                 <Button type="submit">Adicionar</Button>
                 <datalist id="status">

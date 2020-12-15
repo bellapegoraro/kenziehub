@@ -22,7 +22,7 @@ import {
 import AddWork from '../../components/addWork';
 import AddTech from '../../components/addTech';
 import userAvatar from './images/user-avatar.png'
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import api from "../../services/api";
 import { useState, useEffect } from "react";
 import Menu from "../../components/Menu/";

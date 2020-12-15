@@ -34,8 +34,6 @@ const OtherUser = () =>{
         .then((res) => setUser(res.data))
     }, []);
 
-    console.log(user)
-       
     return(
         <>
         <Menu/>
