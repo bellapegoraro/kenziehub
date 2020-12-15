@@ -73,6 +73,7 @@ const Button = Styled.button`
     font-size: 1.2rem;
     font-weight: 100;
     margin-top: -10%;
+    cursor: pointer;
 `;
 
 const GrayButton = Styled(Button)`

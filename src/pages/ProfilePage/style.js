@@ -96,7 +96,7 @@ const ImageProfile = styled.img`
 const FormInputs = styled.form`
   display: flex;
   flex-direction: column;
-  height: 30vh;
+  height: 35vh;
 
   @media (min-width: 1000px) {
     height: 35vh;
@@ -112,6 +112,8 @@ const Button = styled.button`
   font-weight: 100;
   outline: none;
   cursor: pointer;
+  margin-left: 20%;
+  margin-top: 2%;
 `;
 
 const ButtonPassword = styled.button`
