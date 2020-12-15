@@ -20,7 +20,13 @@ export const getUsersThunk = () => (dispatch, getState) => {
 };
 
 export const getUserTokenReducer = (token) => async (dispatch, getState) => {
-  dispatch(getUserToken(token));
+  const localtoken = localStorage.getItem("authToken");
+
+  if (localtoken) {
+    dispatch(getUserToken(token));
+  } else {
+    localStorage.setItem("authToken", token);
+  }
 };
 
 export const getUserTechsReducer = (token) => async (dispatch, getState) => {

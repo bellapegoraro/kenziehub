@@ -2,11 +2,16 @@ import FontAwesome from "react-fontawesome";
 import { MenuContainerOpen, MenuContainerClose, LinkContainer } from "./style";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUserTokenReducer } from "../../store/modules/users/thunk";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const history = useHistory();
-  const token = localStorage.getItem("authToken");
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.users);
+
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -18,14 +23,7 @@ const Menu = () => {
             style={{ color: "white" }}
             onClick={() => setIsOpen(!isOpen)}
           />
-          <LinkContainer onClick={() => history.push("/devs")}>
-            <FontAwesome
-              className="fas fa-home"
-              size="2x"
-              style={{ color: "white" }}
-            />
-            <span>Home</span>
-          </LinkContainer>
+
           {token && (
             <LinkContainer onClick={() => history.push("/profile/")}>
               <FontAwesome
@@ -45,21 +43,21 @@ const Menu = () => {
             <span>Devs</span>
           </LinkContainer>
           {token ? (
-            <>
-              <LinkContainer
-                onClick={() => {
-                  localStorage.removeItem("authToken");
-                  history.push("/devs");
-                }}
-              >
-                <FontAwesome
-                  className="far fa-times-circle"
-                  size="2x"
-                  style={{ color: "white" }}
-                />
-                <span>Logout</span>
-              </LinkContainer>
-            </>
+            <LinkContainer
+              onClick={() => {
+                dispatch(deleteUserTokenReducer(token));
+                localStorage.removeItem("authToken");
+                setIsOpen(!isOpen);
+                history.push("/devs");
+              }}
+            >
+              <FontAwesome
+                className="far fa-times-circle"
+                size="2x"
+                style={{ color: "white" }}
+              />
+              <span>Logout</span>
+            </LinkContainer>
           ) : (
             <>
               <LinkContainer onClick={() => history.push("/login")}>

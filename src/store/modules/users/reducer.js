@@ -8,26 +8,27 @@ const stateObject = {
 };
 
 const getUsersReducer = (state = stateObject, actions) => {
+  console.log(`reducer`, actions);
   switch (actions.type) {
     case types.getUserList:
-      state.listOfUsers = [...state.listOfUsers, ...actions.usersList];
-      return state;
+      const { userList } = actions;
+      return { ...state, listOfUsers: [...userList] };
 
     case types.UserToken:
-      state.token = actions.token;
-      return state;
+      const { token } = actions;
+      return { ...state, token };
 
     case types.UserWorks:
-      state.userWorks = [...state.userWorks, ...actions.works];
-      return state;
+      const { works } = actions;
+      return { ...state, userWorks: [...works] };
 
     case types.UserTechs:
-      state.userTechs = [...state.userTechs, actions.techs];
-      return state;
+      const { techs } = actions;
+      return { ...state, userTechs: [...techs] };
 
     case types.deleteUserToken:
-      state.token = actions.token;
-      return state;
+      const deltoken = actions.token;
+      return { ...state, token: deltoken };
 
     default:
       return state;
