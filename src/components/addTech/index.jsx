@@ -1,32 +1,35 @@
 import {
-    Container,
-    Form,
-    Button,
-    Input,
-    Label,
-    Error,
-    Close,
-} from '../addWork/style';
-import {MdClose} from 'react-icons/md'
-import {useForm} from 'react-hook-form';
+  Container,
+  Form,
+  Button,
+  Input,
+  Label,
+  Error,
+  Close,
+} from "../addWork/style";
+import { MdClose } from "react-icons/md";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import api from '../../services/api';
-import Draggable from 'react-draggable'
+import api from "../../services/api";
+import Draggable from "react-draggable";
 
-const AddTech = ({ setVisibleTech}) =>{
-    const schema = yup.object().shape({
-        title: yup.string().required('Campo Obrigatório'),
-        status: yup.string().required('Campo Obrigatório')
-    })
-    const {register, handleSubmit, errors} = useForm({
-        resolver: yupResolver(schema),
-    });
+const AddTech = ({ setVisibleTech }) => {
+  const schema = yup.object().shape({
+    title: yup.string().required("Campo Obrigatório"),
+    status: yup.string().required("Campo Obrigatório"),
+  });
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-    const handleTech = (data) =>{
-        api.post('/users/techs', {...data})
-        setVisibleTech(false)
+  const handleTech = async (data) => {
+    const response = await api.post("/users/techs", { ...data });
+
+    if (response.status === 201) {
+      setVisibleTech(false);
     }
+  };
 
     const size = window.innerWidth
 
@@ -55,4 +58,4 @@ const AddTech = ({ setVisibleTech}) =>{
     )
 }
 
-export default AddTech
+export default AddTech;
