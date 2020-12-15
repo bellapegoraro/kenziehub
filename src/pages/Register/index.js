@@ -1,10 +1,11 @@
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { registerUserThunk } from "../../store/modules/register/thunk";
-import { useDispatch } from "react-redux";
+import api from "../../services/api";
 import image from "./imagens/undraw_secure_login_pdn4.svg";
 import { useHistory } from "react-router-dom";
+
 import {
   Container,
   HeaderMobile,
@@ -24,8 +25,9 @@ import {
 } from "./style";
 
 const RegisterForm = () => {
+  const [error, setError] = useState(null);
+
   const history = useHistory();
-  const dispatch = useDispatch();
   const schema = yup.object().shape({
     name: yup
       .string()
@@ -50,8 +52,15 @@ const RegisterForm = () => {
   });
 
   const handleForm = (data) => {
-    dispatch(registerUserThunk(data));
-    history.push("/login");
+    const url = "/users";
+    api
+      .post(url, { ...data })
+      .then((res) => {
+        if (res.status !== "error") {
+          history.push("/login");
+        }
+      })
+      .catch((err) => setError(err.response));
   };
 
   return (
@@ -69,7 +78,10 @@ const RegisterForm = () => {
         <Form onSubmit={handleSubmit(handleForm)}>
           <Label htmlFor="email">Email</Label>
           <Input name="email" placeholder="Email" ref={register}></Input>
-          <Errors>{errors.email?.message}</Errors>
+          <Errors>
+            {errors.email?.message}
+            {error && "E-mail já cadastrado"}
+          </Errors>
           <Label htmlFor="name">Senha</Label>
           <Input name="password" placeholder="Senha" ref={register}></Input>
           <Errors>{errors.password?.message}</Errors>

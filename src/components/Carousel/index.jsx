@@ -3,17 +3,17 @@ import api from "../../services/api";
 import { Carousel } from "antd";
 import "antd/dist/antd.css";
 import { Main } from "../List/style";
-import { WorkTitle } from "../../pages/UserPage/style";
+import { WorkTitle } from "../../pages/UserProfile/style";
 
-const Slides = ({ url }) => {
+const Slides = () => {
   const onChange = (a, b, c) => {
-    // console.log(a, b, c);
+    console.log(a, b, c);
   };
 
   const [works, setWorks] = useState([]);
 
   useEffect(() => {
-    api.get(`/${url}`).then((res) => setWorks(res.data.works));
+    api.get("/profile").then((res) => setWorks(res.data.works));
   }, []);
 
   return (

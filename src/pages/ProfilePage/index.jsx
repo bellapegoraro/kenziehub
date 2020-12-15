@@ -19,6 +19,7 @@ import {
   Main,
   ButtonPassword,
 } from "./style";
+import Menu from "../../components/Menu";
 
 const ProfilePage = () => {
   const history = useHistory();
@@ -66,6 +67,7 @@ const ProfilePage = () => {
 
   return (
     <Container>
+      <Menu />
       <HeaderMobile>
         <Title>Editar perfil</Title>
       </HeaderMobile>
