@@ -3,7 +3,7 @@ import api from "../../services/api";
 import { Carousel } from "antd";
 import "antd/dist/antd.css";
 import { Main } from "../List/style";
-import { WorkTitle } from "../../pages/UserPage/style";
+import { WorkTitle } from "../../pages/UserProfile/style";
 
 const Slides = ({ url }) => {
   const onChange = (a, b, c) => {
