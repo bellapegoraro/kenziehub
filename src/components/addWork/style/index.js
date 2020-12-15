@@ -2,13 +2,18 @@ import Styled from 'styled-components';
 
 export const Container = Styled.div `
     box-shadow: 3px 3px 5px #3838;
-    width: 500px;
+    width: 40vw;
     height: 280px;
     padding: 2%;
     position: absolute;
     top: 100px;
     background-color: #fff;
     z-index: 1;
+    margin: auto;
+    @media(max-width: 1000px){
+        height: 320px;
+        width: 80vw;
+    }
 `
 
 export const Form = Styled.form `
