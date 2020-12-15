@@ -32,11 +32,12 @@ const OtherUser = () =>{
     const id = localStorage.getItem('Id')
     const [user, setUser] = useState({})
 
-    
     useEffect(() =>{
         api.get(`users/${id}`)
         .then((res) => setUser(res.data))
     }, []);
+
+    console.log(user)
        
     return(
         <>
