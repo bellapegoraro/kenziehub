@@ -19,3 +19,8 @@ export const getUserToken = (token) => ({
   type: types.UserToken,
   token,
 });
+
+export const deleteUserToken = (token) => ({
+  type: types.deleteUserToken,
+  token,
+});

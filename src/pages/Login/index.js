@@ -45,7 +45,6 @@ const Login = () => {
   const handleForm = async (data) => {
     const response = await api.post("/sessions", { ...data });
     if (response.status === 200) {
-      console.log(response);
       dispatch(getUserTokenReducer(response.data.token));
       history.push("/devs");
       return;

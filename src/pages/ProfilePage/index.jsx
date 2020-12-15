@@ -45,9 +45,10 @@ const ProfilePage = () => {
   });
 
   const handleForm = async (data) => {
-    console.log(data);
     const response = await api.put("/profile", { ...data });
-    console.log(response);
+    if (response.status === 200) {
+      history.push("/profile");
+    }
   };
 
   const { token } = useSelector((state) => state);
@@ -63,13 +64,10 @@ const ProfilePage = () => {
 
   const handleChange = async (e) => {
     const data = new FormData();
-
     data.append("avatar", e.target.files[0]);
-
     const response = await api.patch("/users/avatar", data);
     setData(response.data);
   };
-
   return (
     <Container>
       <Menu />
@@ -90,10 +88,7 @@ const ProfilePage = () => {
           <Input name="name" placeholder="Nome" ref={register} />
           <label htmlFor="contact">Contato</label>
           <Input name="contact" placeholder="Contato" ref={register} />
-          <ButtonPassword onClick={() => setPassword(!password)}>
-            Alterar senha
-          </ButtonPassword>
-          {password ? (
+          {password && (
             <>
               <label htmlFor="old_password">Senha antiga</label>
               <Input
@@ -102,16 +97,14 @@ const ProfilePage = () => {
                 ref={register}
               />
               <label htmlFor="password">Nova senha</label>
-              <Input
-                name="password"
-                placeholder="Nova senha"
-                ref={register}
-              />{" "}
+              <Input name="password" placeholder="Nova senha" ref={register} />
             </>
-          ) : null}
+          )}
+          <Button type="submit">Salvar</Button>
         </FormInputs>
-
-        <Button>Salvar</Button>
+        <ButtonPassword onClick={() => setPassword(!password)}>
+          Alterar senha
+        </ButtonPassword>
       </Main>
     </Container>
   );

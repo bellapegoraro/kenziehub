@@ -4,4 +4,5 @@ export const types = {
   UserWorks: "@users/GET_WORKS",
   UserTechs: "@users/GET_TECHS",
   UserToken: "@users/GET_TOKEN",
+  deleteUserToken: "users/DELETE",
 };

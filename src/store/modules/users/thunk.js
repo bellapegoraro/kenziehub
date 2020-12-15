@@ -37,3 +37,8 @@ export const getUserWorksReducer = (token) => async (dispatch, getState) => {
     .catch((err) => console.log(err));
   dispatch(getUserWorks(response.data.works));
 };
+
+export const deleteUserTokenReducer = (token) => (dispatch, getState) => {
+  const deleteToken = "";
+  dispatch(getUserToken(deleteToken));
+};

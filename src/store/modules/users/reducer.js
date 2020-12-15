@@ -25,6 +25,10 @@ const getUsersReducer = (state = stateObject, actions) => {
       state.userTechs = [...state.userTechs, actions.techs];
       return state;
 
+    case types.deleteUserToken:
+      state.token = actions.token;
+      return state;
+
     default:
       return state;
   }
