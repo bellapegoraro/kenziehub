@@ -7,7 +7,6 @@ import {
     Name,
     Avatar,
     Bio,
-    Button,
     Tecnologias,
     Titles,
     Bar,
@@ -21,14 +20,12 @@ import {
 import userAvatar from '../UserPage/images/user-avatar.png'
 import Menu from '../../components/Menu/';
 import Slides from '../../components/Carousel';
-import {useHistory} from 'react-router-dom';
 import {useEffect, useState} from 'react'
 import api from '../../services/api';
 
 
 const OtherUser = () =>{
     
-    const history = useHistory();
     const id = localStorage.getItem('Id')
     const [user, setUser] = useState({})
 

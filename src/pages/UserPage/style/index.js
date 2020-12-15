@@ -61,6 +61,7 @@ const Name = Styled.h3 `
 `
 const Avatar = Styled.img `
     width: 100px;
+    height: 
     box-shadow: 3px 3px 5px #3838;
     padding: 2%;
     border-radius: 50%;

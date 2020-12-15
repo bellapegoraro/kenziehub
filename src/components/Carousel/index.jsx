@@ -6,10 +6,7 @@ import {Main} from '../List/style';
 import {WorkTitle} from '../../pages/UserPage/style';
 
 const Slides = ({url}) =>{
-    const onChange = (a, b, c) => {
-        console.log(a, b, c);
-      }
-     
+    
     const [works, setWorks] = useState([])    
 
     useEffect(() =>{
@@ -18,7 +15,7 @@ const Slides = ({url}) =>{
 
     return(
         <>
-            <Carousel autoplay afterChange={onChange}>
+            <Carousel autoplay>
                 {works.map((work, index) =>{
                     return(
                         <Main key={index}>

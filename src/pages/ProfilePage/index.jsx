@@ -43,9 +43,7 @@ const ProfilePage = () => {
   });
 
   const handleForm = async (data) => {
-    console.log(data);
     const response = await api.put("/profile", { ...data });
-    console.log(response);
   };
 
   useEffect(() => {

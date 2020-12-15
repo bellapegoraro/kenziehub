@@ -14,11 +14,9 @@ import {
     Bar,
     Tecnologia,
     Label,
-    Works,
     Header,
     HeaderTitle,
     HeaderBar,
-    WorkTitle,
     WorkHeader,
 } from './style';
 import AddWork from '../../components/addWork';

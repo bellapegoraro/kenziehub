@@ -1,4 +1,5 @@
 import Styled from 'styled-components';
+import Draggable from 'react-draggable'
 
 export const Container = Styled.div `
     box-shadow: 3px 3px 5px #3838;

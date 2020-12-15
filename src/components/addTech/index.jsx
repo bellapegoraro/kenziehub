@@ -24,12 +24,14 @@ const AddTech = ({ setVisibleTech}) =>{
     });
 
     const handleTech = (data) =>{
-        api.post('/users/techs', {...data}).then(res => console.log(res))
+        api.post('/users/techs', {...data})
         setVisibleTech(false)
     }
 
+    const size = window.innerWidth
+
     return(
-        <Draggable>
+        <Draggable disabled={size < 1000 ? true : false}>
         <Container>
             <Close><MdClose onClick={() => setVisibleTech(false)}/></Close>
             <Form onSubmit={handleSubmit(handleTech)}>
