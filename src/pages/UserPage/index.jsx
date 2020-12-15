@@ -47,6 +47,15 @@ const UserProfile = () => {
       .catch(() => history.push("/profile"));
   }, []);
 
+  useEffect(() => {
+    api
+      .get("/profile")
+      .then((res) => {
+        setUser(res.data);
+        setTechs(res.data.techs);
+      })
+      .catch(() => history.push("/profile"));
+  }, [techs]);
   return (
     <>
       <Menu />
