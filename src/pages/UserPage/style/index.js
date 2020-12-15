@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 const Container = Styled.div `
     display: flex;
     justify-content: space-between;
+    align-content: center;
+    height: 90vh;
     width: 90vw;
     margin: 0 auto;
     color: #001F43;
@@ -20,15 +22,17 @@ const Col1 = Styled.div `
     align-items: center;
     box-shadow: 3px 3px 5px #00000029;
     padding: 2%;
+    width: 20vw;
     @media(max-width: 1000px){
         box-shadow: none;
-        
+        margin-top: 1%;
+        width: 90vw;
       }
 `
 const Col2 = Styled.div `
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 50%;
     @media(max-width: 1000px){
         width: 90vw;
       }
@@ -36,6 +40,7 @@ const Col2 = Styled.div `
 const Col3 = Styled.div `
     display: flex;
     flex-direction: column;
+    width: 20vw;
     @media(max-width: 1000px){
         display: none;
       }
@@ -96,7 +101,8 @@ const Button = Styled.button `
     width: 120px;
     height: 40px;
     font-size: 0.8rem;
-    margin: 2% auto;
+    margin: 5% auto;
+    margin-bottom: 2%;
     &:hover{
         background-color: #023b7d;
     }
@@ -121,7 +127,6 @@ const WorkTitle = Styled.h5 `
 
 const Header = Styled.div `
     display: flex;
-    margin-bottom: 2%;
     margin-top: 5%;
     @media(max-width: 1000px){
         display: none;
@@ -134,9 +139,9 @@ const HeaderTitle = Styled.h1 `
 const HeaderBar = Styled.div ` 
     background-color: #001F43;
     width: 85%;
-    height: 15px;
+    height: 12px;
     margin-left: 2%;
-    margin-top: 1%;
+    margin-top: 1.5%;
     @media(max-width: 1000px){
         margin-top: 5%;
       }

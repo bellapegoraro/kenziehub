@@ -21,7 +21,6 @@ import {
   WorkTitle,
   WorkHeader,
 } from "./style";
-import { Main } from "../../components/List/style";
 import AddWork from "../../components/addWork";
 import AddTech from "../../components/addTech";
 import userAvatar from "./images/user-avatar.png";
@@ -114,7 +113,7 @@ const UserProfile = () => {
             <Titles>Trabalhos</Titles>
           </WorkHeader>
           {visibleWork && <AddWork setVisibleWork={setVisibleWork} />}
-          <Slides works={user.works} />
+          <Slides url={`profile`} />
           <Button onClick={() => setVisibleWork(true)}>
             Adicionar Trabalho
           </Button>

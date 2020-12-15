@@ -2349,10 +2349,10 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-antd@^4.9.2:
-  version "4.9.2"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-4.9.2.tgz#382a409187fc2e5395ad4b1769bd7a0ec8da62f9"
-  integrity sha512-unZxnwihmIzHDGchZxuJDJe2tfeKWpsZHrrIdQR2hIie7I1lYSn4GyFZvn8MAkQvpum7Mj41eTJKib5TVfYxQw==
+antd@^4.9.3:
+  version "4.9.3"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-4.9.3.tgz#a9666fe3d7e0b18818e7f8bdb81abbf8a4a3e7d2"
+  integrity sha512-91+YwXG/CUND+Za5HLIE4SHfIjxCZFM+Cy9DreKM51llvCZimoLMXbIuhHOB5quTwTlA7ZO2g10SR08yvZWdBQ==
   dependencies:
     "@ant-design/colors" "^5.0.0"
     "@ant-design/icons" "^4.3.0"
@@ -9684,10 +9684,10 @@ react-fontawesome@^1.7.1:
   dependencies:
     prop-types "^15.5.6"
 
-react-hook-form@^6.12.2:
-  version "6.12.2"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.12.2.tgz#aa67f47da4730a7bce44768583bdf5b749eed521"
-  integrity sha512-O72E2DXyk7djFqyy6eYi5yESGweKe0CNHHPS0Mx4JazpLbE4Ox+66ldZ23f0J5ZN/krEjDWRD+hUfg5Shvfhtw==
+react-hook-form@^6.13.0:
+  version "6.13.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.13.0.tgz#91e6da52cd3a636724b38ad8bc3704d7bd8a2626"
+  integrity sha512-AADO0EtAGEggII3DNhBCwm7MSwkBWCVo72K32NY6YzhSTBL5bJsBfWJ4/PVGBer31js5ppt+I6/qUyLo8o8AvA==
 
 react-icons@^4.1.0:
   version "4.1.0"

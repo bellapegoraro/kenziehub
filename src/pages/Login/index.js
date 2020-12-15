@@ -20,6 +20,7 @@ import {
   Errors,
   Button,
   FormContainer,
+  LinkStyled,
 } from "./style";
 
 const Login = () => {
@@ -70,12 +71,19 @@ const Login = () => {
 
             <div>
               <Label htmlFor="name">Senha</Label>
-              <Input name="password" placeholder="Senha" ref={register}></Input>
+              <Input
+                name="password"
+                type="password"
+                placeholder="Senha"
+                ref={register}
+              ></Input>
               <Errors>{errors.password?.message}</Errors>
               <p></p>
             </div>
             <div>
               <Button type="submit">Entrar</Button>
+              <br />
+              <LinkStyled to="/register">Ir para cadastro</LinkStyled>
             </div>
           </Main>
         </Form>
