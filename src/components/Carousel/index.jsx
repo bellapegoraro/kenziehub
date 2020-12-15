@@ -7,10 +7,14 @@ import { WorkTitle } from "../../pages/UserPage/style";
 
 const Slides = ({ url }) => {
   const onChange = (a, b, c) => {
-    // console.log(a, b, c);
+    console.log(a, b, c);
   };
 
   const [works, setWorks] = useState([]);
+
+  useEffect(() => {
+    api.get(`/${url}`).then((res) => setWorks(res.data.works));
+  }, []);
 
   useEffect(() => {
     api.get(`/${url}`).then((res) => setWorks(res.data.works));
