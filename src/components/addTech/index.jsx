@@ -35,7 +35,7 @@ const AddTech = ({ setVisibleTech }) => {
 
     return(
         <Draggable disabled={size < 1000 ? true : false}>
-        <Container>
+        <Container style={{height: "260px"}}>
             <Close><MdClose onClick={() => setVisibleTech(false)}/></Close>
             <Form onSubmit={handleSubmit(handleTech)}>
                 <Label>Tecnologia</Label>

@@ -13,6 +13,7 @@ const Container = Styled.div `
     @media(max-width: 1000px){
         flex-direction: column;
         height: 100vh;
+        margin-top: 20%;
       }
     
 `
