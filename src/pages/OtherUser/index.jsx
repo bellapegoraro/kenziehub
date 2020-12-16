@@ -18,11 +18,7 @@ import {
   WorkHeader,
   Favorite,
 } from "../UserProfile/style";
-<<<<<<< HEAD
-import Alert from '../../components/alert';
-=======
 import Alert from "../../components/alert";
->>>>>>> Fix/All
 import FontAwesome from "react-fontawesome";
 import userAvatar from "../UserProfile/images/user-avatar.png";
 import Menu from "../../components/Menu/";
@@ -36,7 +32,7 @@ const OtherUser = () => {
   const { id } = useParams();
   const token = localStorage.getItem("authToken");
   const [open, setOpen] = useState(false);
-  const [added, setAdded] = useState(false)
+  const [added, setAdded] = useState(false);
 
   useEffect(() => {
     api.get(`users/${id}`).then((res) => setUser(res.data));
@@ -46,27 +42,24 @@ const OtherUser = () => {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
     if (favorites.find((el) => el.id === user.id)) {
-      return (
-        setAdded(true),
-        setOpen(true)
-        )
-
+      const removed = favorites.filter((user) => user.id !== id);
+      localStorage.setItem("favorites", JSON.stringify(removed));
+      return setAdded(true), setOpen(true);
     }
-    setOpen(true)
+    setOpen(true);
     favorites = [...favorites, user];
-
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
 
-  if(open === true) {
-    setTimeout(() =>{
-      setOpen(false)
-    }, 5000)
+  if (open === true) {
+    setTimeout(() => {
+      setOpen(false);
+    }, 5000);
   }
 
   return (
     <>
-     {open && <Alert added={added}/>}
+      {open && <Alert added={added} />}
       <Menu />
       <Header>
         <HeaderTitle>KenzieHub</HeaderTitle>
