@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import Styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 const Container = Styled.div`
@@ -152,13 +152,13 @@ const WorkHeader = Styled.div`
     display: flex;
     justify-content: space-between;
 `;
-
 const Favorite = Styled.div`
     cursor: pointer;
     color: black;
     :hover{
         color: firebrick;
     }
+
 `;
 
 export {

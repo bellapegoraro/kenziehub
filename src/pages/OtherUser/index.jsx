@@ -18,7 +18,11 @@ import {
   WorkHeader,
   Favorite,
 } from "../UserProfile/style";
+<<<<<<< HEAD
 import Alert from '../../components/alert';
+=======
+import Alert from "../../components/alert";
+>>>>>>> Fix/All
 import FontAwesome from "react-fontawesome";
 import userAvatar from "../UserProfile/images/user-avatar.png";
 import Menu from "../../components/Menu/";
@@ -40,6 +44,7 @@ const OtherUser = () => {
 
   const makeFavorite = () => {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
     if (favorites.find((el) => el.id === user.id)) {
       return (
         setAdded(true),
@@ -49,6 +54,7 @@ const OtherUser = () => {
     }
     setOpen(true)
     favorites = [...favorites, user];
+
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
 
@@ -75,8 +81,8 @@ const OtherUser = () => {
             <Avatar src={userAvatar} alt={user.name} />
           )}
           {token && (
-            <Favorite onClick={makeFavorite}>
-              <FontAwesome className="fas fa-heart" size="2x" />
+            <Favorite onClick={() => makeFavorite()}>
+              <FontAwesome className="fas fa-heart" size="2x" name="heart" />
             </Favorite>
           )}
           <Bio>{user.bio}</Bio>

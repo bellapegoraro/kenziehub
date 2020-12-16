@@ -45,6 +45,7 @@ const Menu = () => {
                 className="fas fa-heart"
                 size="2x"
                 style={{ color: "white" }}
+                name="favorites"
               />
               <span>Favoritos</span>
             </LinkContainer>

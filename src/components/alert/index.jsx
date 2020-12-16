@@ -1,15 +1,11 @@
-import {
-    Container,
-} from './style';
+import { Container } from "./style";
 
-const Alert = ({added}) =>{
-   
+const Alert = ({ added }) => {
+  return (
+    <Container>
+      {added === true ? "Usuário foi removido" : "Adicionado aos favoritos"}
+    </Container>
+  );
+};
 
-    return(
-        <Container>
-           { added === true ? 'Usuário já foi adicionado' :  'Adicionado aos favoritos'}
-        </Container>
-    )
-}
-
-export default Alert
+export default Alert;
