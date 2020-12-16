@@ -12,7 +12,7 @@ export const Container = Styled.div `
     margin: auto;
     text-align: center;
     @media(max-width: 1000px){
-        height: 320px;
+        height: 80px;
         width: 80vw;
     }
 `
