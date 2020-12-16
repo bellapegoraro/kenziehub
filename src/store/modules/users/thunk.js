@@ -3,6 +3,7 @@ import {
   getUserToken,
   getUserTechs,
   getUserWorks,
+  getFavorites,
 } from "./actions";
 import api from "../../../services/api";
 

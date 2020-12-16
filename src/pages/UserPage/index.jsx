@@ -7,42 +7,55 @@ import {
   Name,
   Avatar,
   Bio,
+  StyledLink,
   Button,
   Tecnologias,
   Titles,
   Bar,
   Tecnologia,
   Label,
+  Works,
   Header,
   HeaderTitle,
   HeaderBar,
+  WorkTitle,
   WorkHeader,
-} from "../UserProfile/style";
-import userAvatar from "../UserProfile/images/user-avatar.png";
+} from "./style";
+import AddWork from "../../components/addWork";
+import AddTech from "../../components/addTech";
+import userAvatar from "./images/user-avatar.png";
+import { Link, useHistory } from "react-router-dom";
+import api from "../../services/api";
+import { useState, useEffect } from "react";
 import Menu from "../../components/Menu/";
 import Slides from "../../components/Carousel";
-import { useHistory, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import api from "../../services/api";
 
-import { useDispatch } from "react-redux";
-const OtherUser = () => {
-  const dispatch = useDispatch();
+const UserProfile = () => {
+  const history = useHistory();
   const [user, setUser] = useState({});
-  const { id } = useParams();
-  console.log(id);
+  const [techs, setTechs] = useState([]);
+  const [visibleWork, setVisibleWork] = useState(false);
+  const [visibleTech, setVisibleTech] = useState(false);
+
   useEffect(() => {
-    api.get(`users/${id}`).then((res) => setUser(res.data));
+    api
+      .get("/profile")
+      .then((res) => {
+        setUser(res.data);
+        setTechs(res.data.techs);
+      })
+      .catch(() => history.push("/profile"));
   }, []);
 
-  const makeFavorite = () => {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    if (favorites.find((el) => el.id === user.id)) {
-      return;
-    }
-    favorites = [...favorites, user];
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  };
+  useEffect(() => {
+    api
+      .get("/profile")
+      .then((res) => {
+        setUser(res.data);
+        setTechs(res.data.techs);
+      })
+      .catch(() => history.push("/profile"));
+  }, [techs]);
   return (
     <>
       <Menu />
@@ -58,8 +71,9 @@ const OtherUser = () => {
           ) : (
             <Avatar src={userAvatar} alt={user.name} />
           )}
-          <button onClick={makeFavorite}>{`<3`}</button>
-
+          <StyledLink onClick={() => history.push("/edit")}>
+            Editar Perfil
+          </StyledLink>
           <Bio>{user.bio}</Bio>
           <Col4>
             <Titles>Dados pessoais</Titles>
@@ -72,6 +86,7 @@ const OtherUser = () => {
           </Col4>
           <Tecnologias>
             <Titles>Tecnologias</Titles>
+            {visibleTech && <AddTech setVisibleTech={setVisibleTech} />}
             {user.techs &&
               user.techs.map((tech) => {
                 return (
@@ -88,12 +103,19 @@ const OtherUser = () => {
                 );
               })}
           </Tecnologias>
+          <Button onClick={() => setVisibleTech(true)}>
+            Adicionar Tecnologia
+          </Button>
         </Col1>
         <Col2>
           <WorkHeader>
             <Titles>Trabalhos</Titles>
           </WorkHeader>
-          <Slides url={`users/${id}`} />
+          {visibleWork && <AddWork setVisibleWork={setVisibleWork} />}
+          <Slides url={`profile`} />
+          <Button onClick={() => setVisibleWork(true)}>
+            Adicionar Trabalho
+          </Button>
         </Col2>
         <Col3>
           <Titles>Dados pessoais</Titles>
@@ -108,5 +130,4 @@ const OtherUser = () => {
     </>
   );
 };
-
-export default OtherUser;
+export default UserProfile;
