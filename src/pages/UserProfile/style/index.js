@@ -62,10 +62,15 @@ const Name = Styled.h3`
 `;
 const Avatar = Styled.img`
     width: 100px;
-    height: 
+    height: 100px;
     box-shadow: 3px 3px 5px #3838;
     padding: 2%;
     border-radius: 50%;
+
+    @media(min-width: 700px){
+        width: 150px;
+    height: 150px;
+    }
 `;
 const Bio = Styled.p`
     font-weight: 400;

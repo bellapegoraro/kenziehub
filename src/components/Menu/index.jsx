@@ -56,7 +56,7 @@ const Menu = () => {
                 onClick={() => {
                   localStorage.removeItem("authToken");
                   setIsOpen(!isOpen);
-                  history.push("/devs");
+                  history.push("/");
                 }}
               >
                 <FontAwesome
