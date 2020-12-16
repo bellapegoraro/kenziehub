@@ -7,7 +7,6 @@ import {
   Name,
   Avatar,
   Bio,
-  Button,
   Tecnologias,
   Titles,
   Bar,
@@ -17,7 +16,9 @@ import {
   HeaderTitle,
   HeaderBar,
   WorkHeader,
+  Favorite,
 } from "../UserProfile/style";
+import FontAwesome from "react-fontawesome";
 import userAvatar from "../UserProfile/images/user-avatar.png";
 import Menu from "../../components/Menu/";
 import Slides from "../../components/Carousel";
@@ -59,7 +60,11 @@ const OtherUser = () => {
           ) : (
             <Avatar src={userAvatar} alt={user.name} />
           )}
-          {token && <button onClick={makeFavorite}>{`<3`}</button>}
+          {token && (
+            <Favorite onClick={makeFavorite}>
+              <FontAwesome className="fas fa-heart" size="2x" />
+            </Favorite>
+          )}
           <Bio>{user.bio}</Bio>
           <Col4>
             <Titles>Dados pessoais</Titles>
