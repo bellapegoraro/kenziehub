@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import {
   Container,
   Input,
@@ -18,6 +18,8 @@ import {
   Bar,
   Main,
   ButtonPassword,
+  StyledLink,
+  StyledLinkWeb,
 } from "./style";
 import Menu from "../../components/Menu";
 
@@ -68,10 +70,12 @@ const ProfilePage = () => {
       <Menu />
       <HeaderMobile>
         <Title>Editar perfil</Title>
+        <StyledLink onClick={() => history.push('/profile')}>Voltar</StyledLink>
       </HeaderMobile>
       <HeaderDesktop>
         <Title>Editar perfil</Title>
         <Bar></Bar>
+        
       </HeaderDesktop>
       <Main>
         <ImageProfile src={data.avatar_url} />
@@ -100,7 +104,9 @@ const ProfilePage = () => {
         <ButtonPassword onClick={() => setPassword(!password)}>
           Alterar senha
         </ButtonPassword>
+        <StyledLinkWeb onClick={() => history.push('/profile')}>Voltar</StyledLinkWeb>
       </Main>
+      
     </Container>
   );
 };

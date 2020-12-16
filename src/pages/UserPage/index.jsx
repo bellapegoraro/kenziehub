@@ -1,30 +1,28 @@
 import {
-  Col1,
-  Col2,
-  Col3,
-  Col4,
-  Container,
-  Name,
-  Avatar,
-  Bio,
-  StyledLink,
-  Button,
-  Tecnologias,
-  Titles,
-  Bar,
-  Tecnologia,
-  Label,
-  Works,
-  Header,
-  HeaderTitle,
-  HeaderBar,
-  WorkTitle,
-  WorkHeader,
-} from "./style";
-import AddWork from "../../components/addWork";
-import AddTech from "../../components/addTech";
-import userAvatar from "./images/user-avatar.png";
-import { Link, useHistory } from "react-router-dom";
+    Col1,
+    Col2,
+    Col3,
+    Col4,
+    Container,
+    Name,
+    Avatar,
+    Bio,
+    StyledLink,
+    Button,
+    Tecnologias,
+    Titles,
+    Bar,
+    Tecnologia,
+    Label,
+    Header,
+    HeaderTitle,
+    HeaderBar,
+    WorkHeader,
+} from './style';
+import AddWork from '../../components/addWork';
+import AddTech from '../../components/addTech';
+import userAvatar from './images/user-avatar.png'
+import {useHistory} from 'react-router-dom';
 import api from "../../services/api";
 import { useState, useEffect } from "react";
 import Menu from "../../components/Menu/";
@@ -33,7 +31,6 @@ import Slides from "../../components/Carousel";
 const UserProfile = () => {
   const history = useHistory();
   const [user, setUser] = useState({});
-  const [techs, setTechs] = useState([]);
   const [visibleWork, setVisibleWork] = useState(false);
   const [visibleTech, setVisibleTech] = useState(false);
 
@@ -42,20 +39,10 @@ const UserProfile = () => {
       .get("/profile")
       .then((res) => {
         setUser(res.data);
-        setTechs(res.data.techs);
       })
       .catch(() => history.push("/profile"));
   }, []);
 
-  useEffect(() => {
-    api
-      .get("/profile")
-      .then((res) => {
-        setUser(res.data);
-        setTechs(res.data.techs);
-      })
-      .catch(() => history.push("/profile"));
-  }, [techs]);
   return (
     <>
       <Menu />

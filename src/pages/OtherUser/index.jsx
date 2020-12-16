@@ -30,7 +30,8 @@ const OtherUser = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState({});
   const { id } = useParams();
-  console.log(id);
+  const token = localStorage.getItem("authToken");
+
   useEffect(() => {
     api.get(`users/${id}`).then((res) => setUser(res.data));
   }, []);
@@ -58,8 +59,7 @@ const OtherUser = () => {
           ) : (
             <Avatar src={userAvatar} alt={user.name} />
           )}
-          <button onClick={makeFavorite}>{`<3`}</button>
-
+          {token && <button onClick={makeFavorite}>{`<3`}</button>}
           <Bio>{user.bio}</Bio>
           <Col4>
             <Titles>Dados pessoais</Titles>
