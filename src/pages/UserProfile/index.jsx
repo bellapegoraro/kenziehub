@@ -31,19 +31,29 @@ import Slides from "../../components/Carousel";
 const UserProfile = () => {
   const history = useHistory();
   const [user, setUser] = useState({});
+  const [tech, setTech] = useState([]);
   const [visibleWork, setVisibleWork] = useState(false);
   const [visibleTech, setVisibleTech] = useState(false);
   const isMountedRef = useRef(true);
   useEffect(() => {
     api
       .get("/profile")
-      .then((res) => setUser(res.data))
+      .then((res) => {
+        setUser(res.data);
+        setTech(res.data.techs);
+      })
       .catch(() => window.location.reload());
 
     return () => {
       return (isMountedRef.current = false);
     };
-  }, []);
+  }, [tech]);
+
+  // useEffect(() => {
+  //   api.get("/profile").then((res) => {
+  //     setTech(res.data.techs);
+  //   });
+  // }, [tech]);
 
   return (
     <>
@@ -76,8 +86,8 @@ const UserProfile = () => {
           <Tecnologias>
             <Titles>Tecnologias</Titles>
             {visibleTech && <AddTech setVisibleTech={setVisibleTech} />}
-            {user.techs &&
-              user.techs.map((tech, index) => {
+            {tech &&
+              tech.map((tech, index) => {
                 return (
                   <Tecnologia key={index}>
                     <h5>{tech.title}</h5>
