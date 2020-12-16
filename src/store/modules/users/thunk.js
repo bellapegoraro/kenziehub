@@ -1,10 +1,4 @@
-import {
-  getUserList,
-  getUserToken,
-  getUserTechs,
-  getUserWorks,
-  getFavorites,
-} from "./actions";
+import { getUserList, getUserToken } from "./actions";
 import api from "../../../services/api";
 
 export const getUsersThunk = () => (dispatch, getState) => {

@@ -21,13 +21,14 @@ import userAvatar from "../UserProfile/images/user-avatar.png";
 import Menu from "../../components/Menu/";
 import Slides from "../../components/Carousel";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import api from "../../services/api";
 
 const OtherUser = () => {
   const [user, setUser] = useState({});
   const { id } = useParams();
   const token = localStorage.getItem("authToken");
+  const isMountedRef = useRef(true);
 
   useEffect(() => {
     api.get(`users/${id}`).then((res) => setUser(res.data));
@@ -70,9 +71,9 @@ const OtherUser = () => {
           <Tecnologias>
             <Titles>Tecnologias</Titles>
             {user.techs &&
-              user.techs.map((tech) => {
+              user.techs.map((tech, index) => {
                 return (
-                  <Tecnologia>
+                  <Tecnologia key={index}>
                     <h5>{tech.title}</h5>
                     {tech.status === "Avançado" ? (
                       <Bar style={{ width: "240px" }}></Bar>

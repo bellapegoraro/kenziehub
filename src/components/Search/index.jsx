@@ -20,6 +20,7 @@ const Search = () => {
           className="fas fa-search"
           size="2x"
           style={{ color: "gray" }}
+          name="search"
         />
       </Button>
     </Container>

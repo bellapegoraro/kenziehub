@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 100vh;
@@ -17,6 +17,7 @@ const Title = styled.h1`
 
   @media (min-width: 1000px) {
     margin-top: 1%;
+    margin-left: 5%;
   }
 `;
 
@@ -55,7 +56,6 @@ const InputImg = styled.input`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 8%;
     width: 30vw;
     color: #fff;
     border: none;
@@ -68,13 +68,18 @@ const InputImg = styled.input`
     cursor: pointer;
     font-size: 0.9em;
     outline: none;
+    text-align: center;
 
     @media (min-width: 700px) {
       width: 18vw;
     }
 
     @media (min-width: 1000px) {
-      width: 9.5vw;
+      width: 20vw;
+    }
+
+    @media (min-width: 1430px) {
+      width: 10vw;
     }
   }
 `;
@@ -89,8 +94,12 @@ const ImageProfile = styled.img`
   }
 
   @media (min-width: 1000px) {
-    width: 13vw;
+    width: 20vw;
     height: 25vh;
+  }
+
+  @media (min-width: 1430px) {
+    width: 13vw;
   }
 `;
 
@@ -182,16 +191,14 @@ const Main = styled.div`
   }
 `;
 
-const StyledLink = styled(Link) `
+const StyledLink = styled(Link)`
   text-align: center;
-
-`
-const StyledLinkWeb = styled(Link) `
-  @media(max-width: 1000px) {
+`;
+const StyledLinkWeb = styled(Link)`
+  @media (max-width: 1000px) {
     display: none;
   }
-
-`
+`;
 export {
   Container,
   Input,

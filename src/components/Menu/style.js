@@ -57,5 +57,7 @@ export const MenuContainerClose = styled.div`
   @media (min-width: 1024px) {
     border-radius: 0%;
     height: 100vh;
+    top: 0px;
+    left: 0px;
   }
 `;
