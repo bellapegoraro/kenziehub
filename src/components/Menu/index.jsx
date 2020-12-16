@@ -1,6 +1,6 @@
 import FontAwesome from "react-fontawesome";
 import { MenuContainerOpen, MenuContainerClose, LinkContainer } from "./style";
-import { useState } from "react";
+import { useState} from "react";
 import { useHistory } from "react-router-dom";
 
 const Menu = () => {
@@ -18,7 +18,7 @@ const Menu = () => {
             style={{ color: "white" }}
             onClick={() => setIsOpen(!isOpen)}
           />
-          <LinkContainer onClick={() => history.push('/')}>
+          <LinkContainer onClick={() => history.push("/devs")}>
             <FontAwesome
               className="fas fa-home"
               size="2x"
@@ -26,14 +26,16 @@ const Menu = () => {
             />
             <span>Home</span>
           </LinkContainer>
-         { token && <LinkContainer onClick={() => history.push('/profile/')}>
-            <FontAwesome
-              className="fas fa-user"
-              size="2x"
-              style={{ color: "white" }}
-            />
-            <span>Perfil</span>
-          </LinkContainer>}
+          {token && (
+            <LinkContainer onClick={() => history.push("/profile/")}>
+              <FontAwesome
+                className="fas fa-user"
+                size="2x"
+                style={{ color: "white" }}
+              />
+              <span>Perfil</span>
+            </LinkContainer>
+          )}
           <LinkContainer onClick={() => history.push("/devs")}>
             <FontAwesome
               className="fas fa-laptop"
@@ -46,8 +48,8 @@ const Menu = () => {
             <>
               <LinkContainer
                 onClick={() => {
-                  localStorage.removeItem("authToken")
-                  history.push('/devs')
+                  localStorage.removeItem("authToken");
+                  history.push("/devs");
                 }}
               >
                 <FontAwesome
@@ -69,6 +71,16 @@ const Menu = () => {
                 <span>Login</span>
               </LinkContainer>
             </>
+          )}
+          {token ? null : (
+            <LinkContainer onClick={() => history.push("/register")}>
+              <FontAwesome
+                className="fas fa-user-plus"
+                size="2x"
+                style={{ color: "white" }}
+              />
+              <span>Register</span>
+            </LinkContainer>
           )}
         </MenuContainerOpen>
       ) : (
