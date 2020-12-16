@@ -18,6 +18,7 @@ import {
   WorkHeader,
   Favorite,
 } from "../UserProfile/style";
+import Alert from '../../components/alert';
 import FontAwesome from "react-fontawesome";
 import userAvatar from "../UserProfile/images/user-avatar.png";
 import Menu from "../../components/Menu/";
@@ -30,6 +31,8 @@ const OtherUser = () => {
   const [user, setUser] = useState({});
   const { id } = useParams();
   const token = localStorage.getItem("authToken");
+  const [open, setOpen] = useState(false);
+  const [added, setAdded] = useState(false)
 
   useEffect(() => {
     api.get(`users/${id}`).then((res) => setUser(res.data));
@@ -38,13 +41,26 @@ const OtherUser = () => {
   const makeFavorite = () => {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     if (favorites.find((el) => el.id === user.id)) {
-      return;
+      return (
+        setAdded(true),
+        setOpen(true)
+        )
+
     }
+    setOpen(true)
     favorites = [...favorites, user];
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
+
+  if(open === true) {
+    setTimeout(() =>{
+      setOpen(false)
+    }, 5000)
+  }
+
   return (
     <>
+     {open && <Alert added={added}/>}
       <Menu />
       <Header>
         <HeaderTitle>KenzieHub</HeaderTitle>
