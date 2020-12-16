@@ -124,6 +124,8 @@ const Button = styled.button`
   font-weight: 100;
   margin-top: 5%;
   margin-bottom: 10%;
+  outline: none;
+  cursor: pointer;
 `;
 const Label = styled.label`
   display: none;

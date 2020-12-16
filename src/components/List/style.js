@@ -74,14 +74,15 @@ const Techs = styled.div`
   width: 100vw;
 `;
 
-const Image = styled.img`
-  margin-left: 2%;
-  height: 80px;
-  width: 18vw;
+const Image = styled.div`
+  /* margin-left: 2%; */
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
-  background-color: white;
+  background-image: url(${(props) => props.src});
+  background-size: cover;
 
-  @media (min-width: 700px) {
+  /* @media (min-width: 700px) {
     width: 10vw;
     margin-left: 0;
   }
@@ -89,7 +90,7 @@ const Image = styled.img`
   @media (min-width: 1000px) {
     width: 5vw;
     height: 10vh;
-  }
+  } */
 `;
 
 export { Container, Image, Main, Techs, Email, Infos };

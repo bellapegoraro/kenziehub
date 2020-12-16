@@ -24,7 +24,7 @@ import AddTech from "../../components/addTech";
 import userAvatar from "./images/user-avatar.png";
 import { useHistory } from "react-router-dom";
 import api from "../../services/api";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Menu from "../../components/Menu/";
 import Slides from "../../components/Carousel";
 
@@ -33,9 +33,16 @@ const UserProfile = () => {
   const [user, setUser] = useState({});
   const [visibleWork, setVisibleWork] = useState(false);
   const [visibleTech, setVisibleTech] = useState(false);
-
+  const isMountedRef = useRef(true);
   useEffect(() => {
-    api.get("/profile").then((res) => setUser(res.data));
+    api
+      .get("/profile")
+      .then((res) => setUser(res.data))
+      .catch(() => window.location.reload());
+
+    return () => {
+      return (isMountedRef.current = false);
+    };
   }, []);
 
   return (
@@ -53,7 +60,7 @@ const UserProfile = () => {
           ) : (
             <Avatar src={userAvatar} alt={user.name} />
           )}
-          <StyledLink onClick={() => history.push("/edit")}>
+          <StyledLink to="#" onClick={() => history.push("/edit")}>
             Editar Perfil
           </StyledLink>
           <Bio>{user.bio}</Bio>
@@ -70,9 +77,9 @@ const UserProfile = () => {
             <Titles>Tecnologias</Titles>
             {visibleTech && <AddTech setVisibleTech={setVisibleTech} />}
             {user.techs &&
-              user.techs.map((tech) => {
+              user.techs.map((tech, index) => {
                 return (
-                  <Tecnologia>
+                  <Tecnologia key={index}>
                     <h5>{tech.title}</h5>
                     {tech.status === "Avançado" ? (
                       <Bar style={{ width: "240px" }}></Bar>

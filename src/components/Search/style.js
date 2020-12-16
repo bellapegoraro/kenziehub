@@ -7,15 +7,17 @@ const Container = styled.div`
   }
 `;
 const Input = styled.input`
-  width: 295px;
+  width: 220px;
   height: 28px;
-  margin-left: 7%;
+  margin-left: 15%;
   border-radius: 10px;
   border: 1px solid lightgray;
   margin-top: 5%;
   box-shadow: 2px 2px 14px -5px rgba(0, 0, 0, 0.75);
   outline: none;
-
+  @media (max-width: 400px) {
+    margin-left: 3%;
+  }
   @media (min-width: 700px) {
     margin-top: 2%;
     margin-left: 0;
@@ -38,7 +40,7 @@ const Button = styled.button`
     margin-top: 2%;
   }
   @media (min-width: 1000px) {
-    margin-top: 12%;
+    margin-top: 8%;
     margin-right: 4%;
   }
 `;
