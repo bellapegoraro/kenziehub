@@ -31,29 +31,31 @@ const AddTech = ({ setVisibleTech }) => {
     }
   };
 
-  return (
-    <Draggable>
-      <Container>
-        <Close>
-          <MdClose onClick={() => setVisibleTech(false)} />
-        </Close>
-        <Form onSubmit={handleSubmit(handleTech)}>
-          <Label>Tecnologia</Label>
-          <Input name="title" ref={register} />
-          <Error>{errors.title?.message}</Error>
-          <Label>Nível de conhecimento</Label>
-          <Input list="status" name="status" ref={register} />
-          <Error>{errors.status?.message}</Error>
-          <Button type="submit">Adicionar</Button>
-          <datalist id="status">
-            <option value="Iniciante" />
-            <option value="Intermediário" />
-            <option value="Avançado" />
-          </datalist>
-        </Form>
-      </Container>
-    </Draggable>
-  );
-};
+    const size = window.innerWidth
+
+    return(
+        <Draggable disabled={size < 1000 ? true : false}>
+        <Container style={{height: "260px"}}>
+            <Close><MdClose onClick={() => setVisibleTech(false)}/></Close>
+            <Form onSubmit={handleSubmit(handleTech)}>
+                <Label>Tecnologia</Label>
+                <Input name="title" ref={register}/>
+                <Error>{errors.title?.message}</Error> 
+                <Label>Nível de conhecimento</Label>
+                <Input
+                list="status"
+                name="status" ref={register}/>
+                <Error>{errors.status?.message}</Error>
+                <Button type="submit">Adicionar</Button>
+                <datalist id="status">
+                    <option value="Iniciante" />
+                    <option value="Intermediário" />
+                    <option value="Avançado" />
+                </datalist>
+            </Form>
+        </Container>
+        </Draggable>
+    )
+}
 
 export default AddTech;

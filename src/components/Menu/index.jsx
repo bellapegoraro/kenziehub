@@ -1,6 +1,6 @@
 import FontAwesome from "react-fontawesome";
 import { MenuContainerOpen, MenuContainerClose, LinkContainer } from "./style";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { useHistory } from "react-router-dom";
 
 const Menu = () => {

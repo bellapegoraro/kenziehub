@@ -5,10 +5,7 @@ import "antd/dist/antd.css";
 import { Main } from "../List/style";
 import { WorkTitle } from "../../pages/UserPage/style";
 
-const Slides = ({ url }) => {
-  const onChange = (a, b, c) => {
-    console.log(a, b, c);
-  };
+const Slides = ({url}) =>{
 
   const [works, setWorks] = useState([]);
 
@@ -16,17 +13,10 @@ const Slides = ({ url }) => {
     api.get(`/${url}`).then((res) => setWorks(res.data.works));
   }, []);
 
-  useEffect(() => {
-    api.get(`/${url}`).then((res) => setWorks(res.data.works));
-  }, []);
-
-  useEffect(() => {
-    api.get("/profile").then((res) => setWorks(res.data.works));
-  }, [works]);
 
   return (
     <>
-      <Carousel autoplay afterChange={onChange}>
+      <Carousel autoplay>
         {works.map((work, index) => {
           return (
             <Main key={index}>
