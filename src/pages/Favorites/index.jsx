@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { useHistory } from "react-router-dom";
+=======
+>>>>>>> develop
 import { useState } from "react";
 import { Image, Main, Techs, Infos, Email } from "../../components/List/style";
 import { Container, HeaderMobile, HeaderDesktop, Bar, Title, List } from "./style";

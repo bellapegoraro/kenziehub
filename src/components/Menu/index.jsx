@@ -1,6 +1,6 @@
 import FontAwesome from "react-fontawesome";
 import { MenuContainerOpen, MenuContainerClose, LinkContainer } from "./style";
-import { useState} from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const Menu = () => {
@@ -17,12 +17,14 @@ const Menu = () => {
             size="2x"
             style={{ color: "white" }}
             onClick={() => setIsOpen(!isOpen)}
+            name="closeMenu"
           />
           <LinkContainer onClick={() => history.push("/devs")}>
             <FontAwesome
               className="fas fa-home"
               size="2x"
               style={{ color: "white" }}
+              name="home"
             />
             <span>Home</span>
           </LinkContainer>
@@ -32,6 +34,7 @@ const Menu = () => {
                 className="fas fa-user"
                 size="2x"
                 style={{ color: "white" }}
+                name="profile"
               />
               <span>Perfil</span>
             </LinkContainer>
@@ -51,6 +54,7 @@ const Menu = () => {
               <LinkContainer
                 onClick={() => {
                   localStorage.removeItem("authToken");
+                  setIsOpen(!isOpen);
                   history.push("/devs");
                 }}
               >
@@ -58,6 +62,7 @@ const Menu = () => {
                   className="far fa-times-circle"
                   size="2x"
                   style={{ color: "white" }}
+                  name="logout"
                 />
                 <span>Logout</span>
               </LinkContainer>
@@ -69,6 +74,7 @@ const Menu = () => {
                   className="far fa-check-circle"
                   size="2x"
                   style={{ color: "white" }}
+                  name="login"
                 />
                 <span>Login</span>
               </LinkContainer>
@@ -80,6 +86,7 @@ const Menu = () => {
                 className="fas fa-user-plus"
                 size="2x"
                 style={{ color: "white" }}
+                name="register"
               />
               <span>Register</span>
             </LinkContainer>
@@ -91,6 +98,7 @@ const Menu = () => {
             className="fas fa-bars"
             size="2x"
             style={{ color: "white" }}
+            name="menu"
           />
         </MenuContainerClose>
       )}

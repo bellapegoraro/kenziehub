@@ -22,20 +22,18 @@ import FontAwesome from "react-fontawesome";
 import userAvatar from "../UserProfile/images/user-avatar.png";
 import Menu from "../../components/Menu/";
 import Slides from "../../components/Carousel";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 
-import { useDispatch } from "react-redux";
 const OtherUser = () => {
-  const dispatch = useDispatch();
   const [user, setUser] = useState({});
   const { id } = useParams();
   const token = localStorage.getItem("authToken");
 
   useEffect(() => {
     api.get(`users/${id}`).then((res) => setUser(res.data));
-  }, []);
+  });
 
   const makeFavorite = () => {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -78,9 +76,9 @@ const OtherUser = () => {
           <Tecnologias>
             <Titles>Tecnologias</Titles>
             {user.techs &&
-              user.techs.map((tech) => {
+              user.techs.map((tech, index) => {
                 return (
-                  <Tecnologia>
+                  <Tecnologia key={index}>
                     <h5>{tech.title}</h5>
                     {tech.status === "Avançado" ? (
                       <Bar style={{ width: "240px" }}></Bar>
