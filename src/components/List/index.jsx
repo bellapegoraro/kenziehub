@@ -18,7 +18,7 @@ const List = () => {
   }, []);
 
   const handleProfile = (id) => {
-    history.push(`/user/${id}`);
+    history.push(`/users/${id}`);
   };
 
   return (
