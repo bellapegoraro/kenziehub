@@ -13,8 +13,7 @@ const List = () => {
 
   useEffect(() => {
     dispatch(getUsersThunk());
-    console.log(users);
-  }, []);
+  });
 
   const handleProfile = (id) => {
     history.push(`/users/${id}`);

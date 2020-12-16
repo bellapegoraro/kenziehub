@@ -53,7 +53,7 @@ const UserProfile = () => {
           ) : (
             <Avatar src={userAvatar} alt={user.name} />
           )}
-          <StyledLink onClick={() => history.push("/edit")}>
+          <StyledLink to="#" onClick={() => history.push("/edit")}>
             Editar Perfil
           </StyledLink>
           <Bio>{user.bio}</Bio>
@@ -70,9 +70,9 @@ const UserProfile = () => {
             <Titles>Tecnologias</Titles>
             {visibleTech && <AddTech setVisibleTech={setVisibleTech} />}
             {user.techs &&
-              user.techs.map((tech) => {
+              user.techs.map((tech, index) => {
                 return (
-                  <Tecnologia>
+                  <Tecnologia key={index}>
                     <h5>{tech.title}</h5>
                     {tech.status === "Avançado" ? (
                       <Bar style={{ width: "240px" }}></Bar>

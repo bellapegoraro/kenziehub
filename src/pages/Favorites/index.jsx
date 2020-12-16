@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { useState } from "react";
 const Favorites = () => {
   const favorites = JSON.parse(localStorage.getItem("favorites"));
@@ -14,7 +13,7 @@ const Favorites = () => {
   return (
     <div>
       {users.map(({ name, id }) => (
-        <div>
+        <div key={id}>
           <p>{name}</p>
           <button onClick={() => removeFavorite(id)}>remover</button>
         </div>

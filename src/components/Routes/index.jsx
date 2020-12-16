@@ -1,5 +1,5 @@
 import { GlobalStyle } from "../../styles";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Register from "../../pages/Register";
 import UserProfile from "../../pages/UserProfile";
 import Login from "../../pages/Login";
