@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 export const Container = Styled.div `
     box-shadow: 3px 3px 5px #3838;
     width: 40vw;
-    height: 280px;
+    height: 350px;
     padding: 2%;
     position: absolute;
     top: 100px;

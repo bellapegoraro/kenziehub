@@ -18,7 +18,10 @@ import {
   Bar,
   Main,
   ButtonPassword,
+  StyledLink,
+  StyledLinkWeb,
 } from "./style";
+import Menu from "../../components/Menu";
 
 const ProfilePage = () => {
   const history = useHistory();
@@ -54,7 +57,7 @@ const ProfilePage = () => {
       .get("/profile")
       .then((res) => setData(res.data))
       .catch(() => history.push("/devs"));
-  }, [data.avatar_url]);
+  }, [data.avatar_url, history]);
 
   const handleChange = async (e) => {
     const data = new FormData();
@@ -64,8 +67,12 @@ const ProfilePage = () => {
   };
   return (
     <Container>
+      <Menu />
       <HeaderMobile>
         <Title>Editar perfil</Title>
+        <StyledLink to="#" onClick={() => history.push("/profile")}>
+          Voltar
+        </StyledLink>
       </HeaderMobile>
       <HeaderDesktop>
         <Title>Editar perfil</Title>
@@ -98,6 +105,9 @@ const ProfilePage = () => {
         <ButtonPassword onClick={() => setPassword(!password)}>
           Alterar senha
         </ButtonPassword>
+        <StyledLinkWeb to="#" onClick={() => history.push("/profile")}>
+          Voltar
+        </StyledLinkWeb>
       </Main>
     </Container>
   );
