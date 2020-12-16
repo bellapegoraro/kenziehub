@@ -21,8 +21,9 @@ const Favorites = () => {
   };
 
   return (
+    <>
+    <Menu />
     <Container>
-      <Menu />
       <HeaderMobile>
         <Title>Favoritos</Title>
       </HeaderMobile>
@@ -46,6 +47,7 @@ const Favorites = () => {
         </Main>
       ))}
     </Container>
+    </>
   );
 };
 
