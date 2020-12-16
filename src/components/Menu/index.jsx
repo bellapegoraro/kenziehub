@@ -39,7 +39,16 @@ const Menu = () => {
               <span>Perfil</span>
             </LinkContainer>
           )}
-
+          {token && (
+            <LinkContainer onClick={() => history.push("/favorites")}>
+              <FontAwesome
+                className="fas fa-heart"
+                size="2x"
+                style={{ color: "white" }}
+              />
+              <span>Favoritos</span>
+            </LinkContainer>
+          )}
           {token ? (
             <>
               <LinkContainer
