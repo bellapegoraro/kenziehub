@@ -22,8 +22,9 @@ import {
   FormContainer,
   LinkStyled,
 } from "./style";
-
+import { useState } from "react";
 const Login = () => {
+  const [erro, setErro] = useState(false);
   const history = useHistory();
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório"),
@@ -43,7 +44,11 @@ const Login = () => {
     if (response.status === 200) {
       localStorage.setItem("authToken", response.data.token);
       history.push("/devs");
+      setErro(false);
       return;
+    }
+    if (response.status !== 200) {
+      setErro(true);
     }
   };
 
@@ -75,7 +80,10 @@ const Login = () => {
                 placeholder="Senha"
                 ref={register}
               ></Input>
-              <Errors>{errors.password?.message}</Errors>
+              <Errors>
+                {errors.password?.message}
+                {erro && "Email ou senha incorretos"}
+              </Errors>
               <p></p>
             </div>
             <div>
