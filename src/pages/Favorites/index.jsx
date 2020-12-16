@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { Image, Main, Techs, Infos, Email } from "../../components/List/style";
-import { Container, HeaderMobile, Title } from "./style";
+import { Container, HeaderMobile, HeaderDesktop, Bar, Title, List } from "./style";
 import DefaultImg from "../../components/List/images/footer-logo.png";
 import Menu from "../../components/Menu";
 const Favorites = () => {
@@ -24,9 +24,14 @@ const Favorites = () => {
     <>
     <Menu />
     <Container>
+      <HeaderDesktop>
+        <Title>Favoritos</Title>
+        <Bar/>
+      </HeaderDesktop>
       <HeaderMobile>
         <Title>Favoritos</Title>
       </HeaderMobile>
+      <List>
       {users.map(({ name, email, techs, avatar_url, id }, index) => (
         <Main key={index} onClick={() => handleProfile(id)}>
           {avatar_url !== null ? (
@@ -46,6 +51,8 @@ const Favorites = () => {
           {/* <button onClick={() => removeFavorite(id)}>remover</button>; */}
         </Main>
       ))}
+      </List>
+      
     </Container>
     </>
   );
