@@ -46,14 +46,6 @@ const Menu = () => {
               <span>Favoritos</span>
             </LinkContainer>
           )}
-          <LinkContainer onClick={() => history.push("/devs")}>
-            <FontAwesome
-              className="fas fa-laptop"
-              size="2x"
-              style={{ color: "white" }}
-            />
-            <span>Devs</span>
-          </LinkContainer>
           {token ? (
             <>
               <LinkContainer
