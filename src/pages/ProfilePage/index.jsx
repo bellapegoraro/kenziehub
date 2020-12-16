@@ -21,6 +21,7 @@ import {
   StyledLink,
   StyledLinkWeb,
 } from "./style";
+import Menu from "../../components/Menu";
 
 const ProfilePage = () => {
   const history = useHistory();
@@ -66,6 +67,7 @@ const ProfilePage = () => {
   };
   return (
     <Container>
+      <Menu />
       <HeaderMobile>
         <Title>Editar perfil</Title>
         <StyledLink onClick={() => history.push('/profile')}>Voltar</StyledLink>

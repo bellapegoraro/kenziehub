@@ -44,8 +44,8 @@ export const LinkContainer = styled.div`
 
 export const MenuContainerClose = styled.div`
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 10px;
+  left: 10px;
   width: 50px;
   height: 50px;
   background-color: #0e1f43;
