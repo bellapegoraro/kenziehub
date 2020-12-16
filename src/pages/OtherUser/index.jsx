@@ -18,36 +18,49 @@ import {
   WorkHeader,
   Favorite,
 } from "../UserProfile/style";
+import Alert from "../../components/alert";
 import FontAwesome from "react-fontawesome";
 import userAvatar from "../UserProfile/images/user-avatar.png";
 import Menu from "../../components/Menu/";
 import Slides from "../../components/Carousel";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import api from "../../services/api";
 
 const OtherUser = () => {
   const [user, setUser] = useState({});
   const { id } = useParams();
   const token = localStorage.getItem("authToken");
-  const isMountedRef = useRef(true);
+  const [open, setOpen] = useState(false);
+  const [added, setAdded] = useState(false);
 
   useEffect(() => {
     api.get(`users/${id}`).then((res) => setUser(res.data));
-  }, []);
+  });
 
   const makeFavorite = () => {
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
     if (favorites.find((el) => el.id === user.id)) {
-      return;
+      const removed = favorites.filter((user) => user.id !== id);
+      localStorage.setItem("favorites", JSON.stringify(removed));
+      return setAdded(true), setOpen(true);
     }
+    setOpen(true);
     favorites = [...favorites, user];
 
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
+
+  if (open === true) {
+    setTimeout(() => {
+      setOpen(false);
+    }, 5000);
+  }
+
   return (
     <>
+      {open && <Alert added={added} />}
       <Menu />
       <Header>
         <HeaderTitle>KenzieHub</HeaderTitle>
@@ -62,8 +75,8 @@ const OtherUser = () => {
             <Avatar src={userAvatar} alt={user.name} />
           )}
           {token && (
-            <Favorite onClick={makeFavorite}>
-              <FontAwesome className="fas fa-heart" size="2x" />
+            <Favorite onClick={() => makeFavorite()}>
+              <FontAwesome className="fas fa-heart" size="2x" name="heart" />
             </Favorite>
           )}
           <Bio>{user.bio}</Bio>

@@ -56,7 +56,7 @@ const InputImg = styled.input`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 30vw;
+    width: 60%;
     color: #fff;
     border: none;
     border-radius: 20px;
