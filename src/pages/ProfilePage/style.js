@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Link} from 'react-router-dom';
 
 const Container = styled.div`
   height: 100vh;
@@ -31,30 +32,34 @@ const Input = styled.input`
 
 const FormImage = styled.form`
   color: #fff;
-  height: 4vh;
+  height: 7vh;
 
   @media (min-width: 1000px) {
-    /* height: 50vh;
-    width: 20vw; */
+    height: 6vh;
   }
 `;
 
 const InputImg = styled.input`
-  color: #eff0f3;
+  color: #001f43;
+  font-size: 0.8em;
+  margin-left: 20%;
+
   ::-webkit-file-upload-button {
     visibility: hidden;
     display: none;
   }
 
   &:before {
-    margin-left: 26%;
     content: "Escolha um arquivo";
-    display: inline-block;
     background-color: #001f43;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 8%;
+    width: 30vw;
     color: #fff;
     border: none;
     border-radius: 20px;
-    border-radius: 3px;
     padding: 9px;
     outline: none;
     white-space: nowrap;
@@ -62,11 +67,15 @@ const InputImg = styled.input`
     -webkit-user-select: none;
     cursor: pointer;
     font-size: 0.9em;
-  }
+    outline: none;
 
-  @media (min-width: 1000px) {
-    /* margin-top: 100%;
-    margin-left: -95%; */
+    @media (min-width: 700px) {
+      width: 18vw;
+    }
+
+    @media (min-width: 1000px) {
+      width: 9.5vw;
+    }
   }
 `;
 
@@ -80,14 +89,15 @@ const ImageProfile = styled.img`
   }
 
   @media (min-width: 1000px) {
-    width: 15vw;
+    width: 13vw;
+    height: 25vh;
   }
 `;
 
 const FormInputs = styled.form`
   display: flex;
   flex-direction: column;
-  height: 30vh;
+  height: 35vh;
 
   @media (min-width: 1000px) {
     height: 35vh;
@@ -103,6 +113,8 @@ const Button = styled.button`
   font-weight: 100;
   outline: none;
   cursor: pointer;
+  margin-left: 20%;
+  margin-top: 2%;
 `;
 
 const ButtonPassword = styled.button`
@@ -120,6 +132,8 @@ const ButtonPassword = styled.button`
 `;
 
 const HeaderMobile = styled.div`
+  width: 100vw;
+  text-align: center;
   @media (min-width: 1000px) {
     display: none;
   }
@@ -143,7 +157,7 @@ const Bar = styled.div`
 `;
 
 const Main = styled.div`
-  height: 70vh;
+  height: 75vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -151,22 +165,33 @@ const Main = styled.div`
   justify-content: space-evenly;
   background-color: #eff0f3;
   box-shadow: 2px 2px 14px -5px rgba(0, 0, 0, 0.75);
-  width: 70vw;
+  width: 85vw;
   margin: 5% auto;
 
   @media (min-width: 700px) {
     width: 50vw;
     margin: 2% auto;
-    height: 75vh;
+    height: 80vh;
   }
 
   @media (min-width: 1000px) {
     width: 30vw;
     align-items: center;
-    margin: 2% auto;
-    height: 80vh;
+    margin: 0 auto;
+    height: 85vh;
   }
 `;
+
+const StyledLink = styled(Link) `
+  text-align: center;
+
+`
+const StyledLinkWeb = styled(Link) `
+  @media(max-width: 1000px) {
+    display: none;
+  }
+
+`
 export {
   Container,
   Input,
@@ -181,4 +206,6 @@ export {
   Bar,
   Main,
   ButtonPassword,
+  StyledLink,
+  StyledLinkWeb,
 };
