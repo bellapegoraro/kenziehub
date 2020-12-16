@@ -7,7 +7,6 @@ import {
   Name,
   Avatar,
   Bio,
-  Button,
   Tecnologias,
   Titles,
   Bar,
@@ -21,13 +20,11 @@ import {
 import userAvatar from "../UserProfile/images/user-avatar.png";
 import Menu from "../../components/Menu/";
 import Slides from "../../components/Carousel";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 
-import { useDispatch } from "react-redux";
 const OtherUser = () => {
-  const dispatch = useDispatch();
   const [user, setUser] = useState({});
   const { id } = useParams();
   const token = localStorage.getItem("authToken");

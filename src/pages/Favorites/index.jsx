@@ -1,9 +1,7 @@
-import { useSelector } from "react-redux";
 import { useState } from "react";
 const Favorites = () => {
   const favorites = JSON.parse(localStorage.getItem("favorites"));
   const [users, setUsers] = useState(favorites);
-  console.log(favorites);
 
   const removeFavorite = (id) => {
     const removed = favorites.filter((user) => user.id !== id);

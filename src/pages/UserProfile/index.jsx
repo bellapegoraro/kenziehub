@@ -35,7 +35,10 @@ const UserProfile = () => {
   const [visibleTech, setVisibleTech] = useState(false);
 
   useEffect(() => {
-    api.get("/profile").then((res) => setUser(res.data));
+    api
+      .get("/profile")
+      .then((res) => setUser(res.data))
+      .catch(() => window.location.reload());
   }, []);
 
   return (
