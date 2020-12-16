@@ -10,7 +10,7 @@ const Slides = ({ url }) => {
 
   useEffect(() => {
     api.get(`/${url}`).then((res) => setWorks(res.data.works));
-  }, []);
+  }, [works]);
 
   return (
     <>

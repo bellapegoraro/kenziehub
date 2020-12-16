@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersThunk } from "../../store/modules/users/thunk";
 import DefaultImg from "./images/footer-logo.png";
@@ -10,11 +10,21 @@ const List = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.listOfUsers);
   const filtered = useSelector((state) => state.search);
-
+  const isMountedRef = useRef(true);
+  // DidMount
   useEffect(() => {
     dispatch(getUsersThunk());
-    console.log(users);
+
+    return () => (isMountedRef.current = false);
   }, []);
+
+  //WillUnmount
+  // useEffect(
+  //   () => () => {
+  //     isMountedRef.current = false;
+  //   },
+  //   []
+  // );
 
   const handleProfile = (id) => {
     history.push(`/users/${id}`);

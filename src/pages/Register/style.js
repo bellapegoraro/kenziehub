@@ -11,6 +11,7 @@ const Container = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     width: 100vw;
+    margin-bottom: 3%;
   }
 `;
 
@@ -41,6 +42,7 @@ const HeaderDesktop = styled.div`
   display: flex;
   justify-content: space-around;
   padding: 10px;
+  margin-top: 1%;
   width: 100vw;
   @media (max-width: 1000px) {
     display: none;
@@ -132,6 +134,8 @@ const Button = styled.button`
   font-weight: 100;
   margin-left: 20%;
   margin-top: 5%;
+  outline: none;
+  cursor: pointer;
 `;
 
 const LinkStyled = styled(Link)`
