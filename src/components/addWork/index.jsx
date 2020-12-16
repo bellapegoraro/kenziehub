@@ -26,12 +26,14 @@ const AddWork = ({ setVisibleWork}) =>{
     });
 
     const handleWork = (data) =>{
-        api.post('/users/works', {...data}).then(res => console.log(res))
+        api.post('/users/works', {...data})
         setVisibleWork(false)
     }
 
+    const size = window.innerWidth
+
     return(
-        <Draggable>
+        <Draggable disabled={size < 1000 ? true : false}>
         <Container>
             <Close><MdClose onClick={() => setVisibleWork(false)}/></Close>
             <Form onSubmit={handleSubmit(handleWork)}>

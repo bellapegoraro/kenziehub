@@ -5,6 +5,7 @@ const stateObject = {
   token: "",
   userWorks: [],
   userTechs: [],
+  favorites: [],
 };
 
 const getUsersReducer = (state = stateObject, actions) => {

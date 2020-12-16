@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Link} from 'react-router-dom';
 
 const Container = styled.div`
   height: 100vh;
@@ -180,6 +181,17 @@ const Main = styled.div`
     height: 85vh;
   }
 `;
+
+const StyledLink = styled(Link) `
+  text-align: center;
+
+`
+const StyledLinkWeb = styled(Link) `
+  @media(max-width: 1000px) {
+    display: none;
+  }
+
+`
 export {
   Container,
   Input,
@@ -194,4 +206,6 @@ export {
   Bar,
   Main,
   ButtonPassword,
+  StyledLink,
+  StyledLinkWeb,
 };

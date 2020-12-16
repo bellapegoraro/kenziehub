@@ -1,28 +1,28 @@
 import {
-  Col1,
-  Col2,
-  Col3,
-  Col4,
-  Container,
-  Name,
-  Avatar,
-  Bio,
-  StyledLink,
-  Button,
-  Tecnologias,
-  Titles,
-  Bar,
-  Tecnologia,
-  Label,
-  Header,
-  HeaderTitle,
-  HeaderBar,
-  WorkHeader,
-} from "./style";
-import AddWork from "../../components/addWork";
-import AddTech from "../../components/addTech";
-import userAvatar from "./images/user-avatar.png";
-import { useHistory } from "react-router-dom";
+    Col1,
+    Col2,
+    Col3,
+    Col4,
+    Container,
+    Name,
+    Avatar,
+    Bio,
+    StyledLink,
+    Button,
+    Tecnologias,
+    Titles,
+    Bar,
+    Tecnologia,
+    Label,
+    Header,
+    HeaderTitle,
+    HeaderBar,
+    WorkHeader,
+} from './style';
+import AddWork from '../../components/addWork';
+import AddTech from '../../components/addTech';
+import userAvatar from './images/user-avatar.png'
+import {useHistory} from 'react-router-dom';
 import api from "../../services/api";
 import { useState, useEffect } from "react";
 import Menu from "../../components/Menu/";
@@ -35,7 +35,12 @@ const UserProfile = () => {
   const [visibleTech, setVisibleTech] = useState(false);
 
   useEffect(() => {
-    api.get("/profile").then((res) => setUser(res.data));
+    api
+      .get("/profile")
+      .then((res) => {
+        setUser(res.data);
+      })
+      .catch(() => history.push("/profile"));
   }, []);
 
   return (
@@ -112,5 +117,4 @@ const UserProfile = () => {
     </>
   );
 };
-
 export default UserProfile;

@@ -1,24 +1,40 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
+=======
+import { useEffect } from "react";
+>>>>>>> 108d9caf29d9a24637af0ce88bba54eaeaae02be
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersThunk } from "../../store/modules/users/thunk";
 import DefaultImg from "./images/footer-logo.png";
 import { Container, Image, Main, Techs, Infos, Email } from "./style";
 import { useHistory } from "react-router-dom";
+<<<<<<< HEAD
 import api from "../../services/api";
+=======
+>>>>>>> 108d9caf29d9a24637af0ce88bba54eaeaae02be
 
 const List = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.listOfUsers);
   const filtered = useSelector((state) => state.search);
+<<<<<<< HEAD
   const history = useHistory();
+=======
+>>>>>>> 108d9caf29d9a24637af0ce88bba54eaeaae02be
 
   useEffect(() => {
     dispatch(getUsersThunk());
   }, []);
 
+<<<<<<< HEAD
   const handleProfile = (id, name) => {
     localStorage.setItem("Id", id);
     history.push(`/user`);
+=======
+  const handleProfile = (id) => {
+    history.push(`/users/${id}`);
+>>>>>>> 108d9caf29d9a24637af0ce88bba54eaeaae02be
   };
 
   return (
